@@ -1,0 +1,175 @@
+---
+name: Nicholas Spyrison
+address: "Department of Econometrics & Business Statistics,\\tabularnewline Monash University, VIC 3145, Australia."
+www: nspyrison.netlify.com
+phone: +61 (4) 2277 0555
+email: "Nicholas.Spyrison@monash.edu"
+twitter: nspyrison
+github: nspyrison
+linkedin: nspyrison
+date: "`r format(Sys.time(), '%B %Y')`"
+headcolor: "000088"
+output: 
+  vitae::hyndman 
+  keep_tex: true
+header_includes:
+  - \ExecuteBibliographyOptions{useprefix=true}
+  - renewcommand{\bibfont}{\normalfont\fontsize{12}{15}\sffamily}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(vitae)
+source("baretable.R")
+```
+
+
+# Education and qualifications
+
+```{r degrees, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Degree, ~Institution,
+  2019, NA, "Ph.D. in Statistics", "Monash University",
+  2016, 2018, "M. in Applied Statistics", "Central University of Finance and Economics",
+  2012, 2016, "B.Ec in Statistics", "Central University of Finance and Economics"
+) %>%
+  arrange(-Start) %>%
+  #filter(Start > 2000) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Degree, Institution) %>%
+  baretable()
+```
+
+# Employment history
+
+```{r employment, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Position,
+  2019, NA, "\\textbf{Data Fluency Associate Instructor}, Library Research Division, Monash University Library",
+  2018, 2019, "\\textbf{Research Assistant}, School of Statistics and Mathematics, Central University of Finance and Economics",
+) %>%
+  arrange(-Start) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Position) %>%
+  baretable()
+```
+
+# Internship experience
+
+```{r internship, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Position,
+  2016.09, 2017.09, "\\textbf{Big Data Analyst}, Shanghai Power Xene Digital Technology Company, Beijing, China",
+  2016.03, 2016.04, "\\textbf{Research Assistant}, China Life Insurance Company Limited, Beijing, China",
+  2015.01, 2015.02, "\\textbf{Consultant Assistant}, Industrial and Commercial Bank of China (ICBC), \\ Hubei, China",
+) %>%
+  arrange(-Start) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Position) %>%
+  baretable()
+```
+
+# Honours and awards
+
+```{r awards, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Year, ~Award,
+  2018, "Outstanding postgraduate student, Central University of Finance and Economics (CUFE)",
+  2017, "First Prize Academic Scholarship for Graduate Student, CUFE",
+  2016, "Outstanding undergraduate student, CUFE",
+  2016, "Scholarship for All-Round Development, CUFE, each year from 2013 to 2016",
+  2016, "Scholarship for Excellent Academic Innovation",
+  2015, "Second Prize in China Undergraduate Mathematical Contest in Modeling",
+  2015, "National Endeavor Scholarship, Ministry of Education of Beijing",
+  2014, "Scholarship for Excellent Student Cadre",
+  2013, "Excellent Student Cadre, School of Statistics and Mathematics, CUFE",
+) %>%
+  baretable()
+```
+
+
+# Research experience
+
+```{r research1, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Project,
+  2018.07, 2019.01, "\\textbf{Research Assistant}, National Natural Science Foundation of China",
+) %>%
+  arrange(-Start) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Project) %>%
+  baretable()
+```
+  
+  * Assisted in the Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data Project.
+  * Completed the stochastic gradient descent application to the multivariate response surface.
+  * Completed the paper titled *Volatility Analysis for Housing Prices with Bayesian Response
+Surface Optimization*.
+
+```{r research2, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Project,
+  2013.04, 2014.04, "\\textbf{Project Leader}, National Undergraduate Innovation and Entrepreneurship Training Program",
+) %>%
+  arrange(-Start) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Project) %>%
+  baretable()
+```
+  
+  * Initiated a municipal project, took charge of making overall arrangements for the project, from research topic design, official application of the project fund, plan of the theoretical approaches and research methods to the empirical analysis of the data collected from questionnaire.
+  * Won the Excellent Prize upon the accomplishment of the research project.
+  * Completed the paper titled *Feasibility Analysis for Developing Commercial Insurance for
+Losing Only-child Problem of Single-child Families*.
+
+
+# Extracurricular activities
+
+```{r activity1, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Project,
+  2012., 2014, "\\textbf{President}, Survey and Data Analysis Association of CUFE",
+) %>%
+  arrange(-Start) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Project) %>%
+  baretable()
+```
+  
+  * Planned a series of publicity activities for the association with more than 10 local universities warmly responding; repeatedly awarded Excellent Prize in student association activities and Advanced Individual Prize in CUFE.
+  * Organized a large quantity of surveys, such as campus bus timetable investigation, campus safety improvement, research on the tutor system in CUFE; obtained several prizes in the relevant contests at different levels.
+  * Twice awarded the Top Association Prize as Class A in CUFE.
+
+```{r activity2, results='asis'}
+## TODO: UPDATE
+tribble(
+  ~Start, ~End, ~Project,
+  2013, 2014, "\\textbf{Anchor and Host}, CUFE Radio Station",
+) %>%
+  arrange(-Start) %>%
+  mutate(End = replace_na(End, "")) %>%
+  mutate(Years = paste(Start, "--", End, sep = "")) %>%
+  select(Years, Project) %>%
+  baretable()
+```
+  
+  * Participated in the broadcast work for the music, travel and interview group, including the script writing, recording, editing and broadcasting.
+  * Host several shows and competitions in CUFE.
+  * Took charge of the preparation and organization of the 5th Anniversary Celebration Evening
+for thE Campus Radio Station.
+
+
