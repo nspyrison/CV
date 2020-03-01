@@ -8,10 +8,10 @@ twitter: nspyrison
 github: nspyrison
 linkedin: nspyrison
 date: "`r format(Sys.time(), '%B %Y')`"
-headcolor: "000088"
+headcolor: "0044cc" # String hex color code without '#'
 output: 
-  vitae::hyndman 
-  keep_tex: true
+  vitae::hyndman:
+  keep_tex: true 
 header_includes:
   - \ExecuteBibliographyOptions{useprefix=true}
   - renewcommand{\bibfont}{\normalfont\fontsize{12}{15}\sffamily}
@@ -24,22 +24,18 @@ library(vitae)
 source("baretable.R")
 ```
 
+# Education
 
-# Education and qualifications
-
-```{r degrees, results='asis'}
-## TODO: UPDATE
+```{r results='asis'}
 tribble(
-  ~Start, ~End, ~Degree, ~Institution,
-  2019, NA, "Ph.D. in Statistics", "Monash University",
-  2016, 2018, "M. in Applied Statistics", "Central University of Finance and Economics",
-  2012, 2016, "B.Ec in Statistics", "Central University of Finance and Economics"
+  ~Start, ~End, ~Degree, ~Institution, ~Details,
+  2018, "2021 (expected)", "Ph.D. Informaiton Technology", "Monash University, Clayton, VIC AUS", "Thesis: New tools user-guided exploration of linear projections", 
+  2008, 2012, "B.Sc. Statistics. Minors: mathematics and physics", "Iowa State University, Ames, IA USA", "Minors: physics and mathematics"
 ) %>%
   arrange(-Start) %>%
-  #filter(Start > 2000) %>%
   mutate(End = replace_na(End, "")) %>%
   mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Degree, Institution) %>%
+  select(Years, Degree, Institution) %>% #, #Details) %>%
   baretable()
 ```
 
