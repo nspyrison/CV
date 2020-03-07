@@ -18,40 +18,50 @@ header_includes:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = F, warning = F, message = F, collapse = T)
 library(tidyverse)
 library(vitae)
+library(unpivotr)
 source("baretable.R")
 ```
 
 # Education
 
 ```{r results='asis'}
-tribble(
-  ~Start, ~End, ~Degree, ~Institution, ~Details,
-  2018, "2021 (expected)", "Ph.D. Informaiton Technology", "Monash University, Clayton, VIC AUS", "Thesis: New tools user-guided exploration of linear projections", 
-  2008, 2012, "B.Sc. Statistics. Minors: mathematics and physics", "Iowa State University, Ames, IA USA", "Minors: physics and mathematics"
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Degree, Institution) %>% #, #Details) %>%
+x <- tribble(
+  ~Start, ~End, ~Text,
+  2018, "2021 (expected)", "\\textit{Ph.D. Informaiton Technology} 
+    \\hfill Monash University, Clayton, VIC, AUS",
+  NA, NA, "Thesis: New Tools for User-guided Exploration of Linear Projections \\hspace{44 mm}", #hspace longest line
+  2008, 2012, "\\textit{B.Sc. Statistics}
+    \\hfill Iowa State University, Ames, IA, USA",
+  NA, NA, "Minors: physics and mathematics"
+) 
+#x <- arrange(x, -Start)
+x$End = replace_na(x$End, "")
+x$Years = if_else(is.na(x$Start), "", paste0(x$Start, "--", x$End))
+select(x, Years, Text) %>%
   baretable()
 ```
 
-# Employment history
+# Employment
 
-```{r employment, results='asis'}
-## TODO: UPDATE
-tribble(
+```{r results='asis'}
+x <- tribble(
   ~Start, ~End, ~Position,
-  2019, NA, "\\textbf{Data Fluency Associate Instructor}, Library Research Division, Monash University Library",
-  2018, 2019, "\\textbf{Research Assistant}, School of Statistics and Mathematics, Central University of Finance and Economics",
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Position) %>%
+  2016, 2018, "\\textbf{Business Intelligence Developer} --  CPI Card Group Inc.",
+  NA, NA, "\\textit{T-SQL Stack - 2012 (SSMS, SSRS), R stats, GitHub, Crystal Reports, Oracle BICS, Excel}",
+  NA, NA, "\\hspace{5 mm} $\\bullet$ Supply chain reporting leading to more than $4 M USD cost reduction",
+  NA, NA, "\\hspace{5 mm} $\\bullet$ T-SQL development -- mid-high level abstraction",
+  NA, NA, "\\hspace{5 mm} $\\bullet$ 4 reporting tools across multiple db instances",
+  2015, 2016, "\\textbf{Business Intelligence Developer} -- United Dominion Realty Trust Inc. (UDR)",
+  NA, NA, "\\textit{T-SQL - 2012 \\& 2016 (SSMS, SSRS, SSAS - MOLAP Cube), PowerBI, WebFOCUS – 8.0+, Excel}",
+  NA, NA, "\\hspace{5 mm} $\\bullet$  T-SQL development -- high level abstraction"
+)
+  #arrange(-Start) %>%
+x$End = replace_na(x$End, "")
+x$Years = if_else(is.na(x$Start), "", paste0(x$Start, "--", x$End))
+select(x, Years, Position) %>%
   baretable()
 ```
 
