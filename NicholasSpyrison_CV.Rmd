@@ -15,6 +15,8 @@ output:
 header_includes:
   - \ExecuteBibliographyOptions{useprefix=true}
   - renewcommand{\bibfont}{\normalfont\fontsize{12}{15}\sffamily}
+  - \usepackage{graphicx}
+  - \usepackage{amsmath}
 ---
 
 ```{r setup, include=FALSE}
@@ -30,9 +32,10 @@ source("baretable.R")
 ```{r results='asis'}
 x <- tribble(
   ~Start, ~End, ~Text,
-  2018, "2021 (expected)", "\\textit{Ph.D. Informaiton Technology} 
+  2018, "\\textit{2021}", "\\textit{Ph.D. Informaiton Technology} 
     \\hfill Monash University, Clayton, VIC, AUS",
-  NA, NA, "Thesis: New Tools for User-guided Exploration of Linear Projections \\hspace{44 mm}", #hspace longest line
+  NA, NA, "Thesis: New Tools for User-guided Exploration of Linear Projections \\hspace{60 mm}", #hspace longest line
+  
   2008, 2012, "\\textit{B.Sc. Statistics}
     \\hfill Iowa State University, Ames, IA, USA",
   NA, NA, "Minors: physics and mathematics"
@@ -44,19 +47,56 @@ select(x, Years, Text) %>%
   baretable()
 ```
 
+
 # Employment
 
 ```{r results='asis'}
 x <- tribble(
   ~Start, ~End, ~Position,
+  2020, 2020, "Teaching assistant, data exploration and visualisation -- Monash University", # FIT 5147
+  2018, 2018, "Research officer, Human geology -- Monash University", # R Language, ETL of AUS census, 3 census of Melb, 2 of Sydn 
+  2019, 2019, "Teaching assistant, business and economic statistics -- Monash University", #ETC1000 
+  2018, 2019, "Research officer, Criminology -- Monash University", # R Language, ETL and analysis gauguing communitiy interaction across intervention
+
   2016, 2018, "\\textbf{Business Intelligence Developer} --  CPI Card Group Inc.",
-  NA, NA, "\\textit{T-SQL Stack - 2012 (SSMS, SSRS), R stats, GitHub, Crystal Reports, Oracle BICS, Excel}",
-  NA, NA, "\\hspace{5 mm} $\\bullet$ Supply chain reporting leading to more than $4 M USD cost reduction",
-  NA, NA, "\\hspace{5 mm} $\\bullet$ T-SQL development -- mid-high level abstraction",
-  NA, NA, "\\hspace{5 mm} $\\bullet$ 4 reporting tools across multiple db instances",
+  NA, NA, "\\textit{T-SQL - 2012 (SSMS, SSRS), R language, GitHub, Crystal Reports, Oracle BICS, Excel}",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Supply chain reporting leading to more than \\$4 M USD cost reduction",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- mid-high level abstraction",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ 4 reporting tools across multiple db instances",
+  
   2015, 2016, "\\textbf{Business Intelligence Developer} -- United Dominion Realty Trust Inc. (UDR)",
   NA, NA, "\\textit{T-SQL - 2012 \\& 2016 (SSMS, SSRS, SSAS - MOLAP Cube), PowerBI, WebFOCUS – 8.0+, Excel}",
-  NA, NA, "\\hspace{5 mm} $\\bullet$  T-SQL development -- high level abstraction"
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ 3 reporting tools across several db instances",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ On-call for enterprize-wide ETL process",
+  
+  2014, 2015, "\\textbf{Business Intelligence Analyst} -- Heartland Financial USA Inc.",
+  NA, NA, "\\textit{WebFOCUS – 8.0+, Excel}",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
+  
+  2014, 2014, "\\textbf{Laboratory Technician} -- The Ames Laboratory & Iowa State University", # ; the Department of Physics & Astronomy
+  NA, NA, "\\textit{CAD Inventor, LabVIEW, Excel}", 
+  # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
+  
+  2013, 2014, "\\textbf{Delivery Analyst} -- International Business Machines Cooporation (IBM)",
+  NA, NA, "\\textit{Excel, VBA, R language}",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and mid managment",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ IBM’s process improvement methodology, root cause analysis, process behavior analysis", # IBM ver is Global distribution framework, GDF
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and mid managment",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ ETL scripting in VBA for greater than 1 FTE savings across the team",
+
+  
+  2012, 2012, "\\textbf{User Interface Developer} -- Iowa State University", # ; the Department of Statistics
+  NA, NA, "\\textit{R language, GitHub, Linux Shell}",
+  
+  2010, 2012, "\\textbf{Laboratory Technician} -- The Ames Laboratory & Iowa State University", # ; the Department of Physics & Astronomy
+  NA, NA, "\\textit{CAD Inventor, LabVIEW, LaTeX, Excel}", 
+  # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
+  
+  2009, 2009, "\\textbf{Physics Tutor} -- Iowa State University", # ; the Department of Physics & Astronomy
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Classical physics I & II with calculus",
+  
+  NA, NA, NA
 )
   #arrange(-Start) %>%
 x$End = replace_na(x$End, "")
@@ -65,38 +105,16 @@ select(x, Years, Position) %>%
   baretable()
 ```
 
-# Internship experience
-
-```{r internship, results='asis'}
-## TODO: UPDATE
-tribble(
-  ~Start, ~End, ~Position,
-  2016.09, 2017.09, "\\textbf{Big Data Analyst}, Shanghai Power Xene Digital Technology Company, Beijing, China",
-  2016.03, 2016.04, "\\textbf{Research Assistant}, China Life Insurance Company Limited, Beijing, China",
-  2015.01, 2015.02, "\\textbf{Consultant Assistant}, Industrial and Commercial Bank of China (ICBC), \\ Hubei, China",
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Position) %>%
-  baretable()
-```
-
-# Honours and awards
+# Honors and awards
 
 ```{r awards, results='asis'}
-## TODO: UPDATE
 tribble(
   ~Year, ~Award,
-  2018, "Outstanding postgraduate student, Central University of Finance and Economics (CUFE)",
-  2017, "First Prize Academic Scholarship for Graduate Student, CUFE",
-  2016, "Outstanding undergraduate student, CUFE",
-  2016, "Scholarship for All-Round Development, CUFE, each year from 2013 to 2016",
-  2016, "Scholarship for Excellent Academic Innovation",
-  2015, "Second Prize in China Undergraduate Mathematical Contest in Modeling",
-  2015, "National Endeavor Scholarship, Ministry of Education of Beijing",
-  2014, "Scholarship for Excellent Student Cadre",
-  2013, "Excellent Student Cadre, School of Statistics and Mathematics, CUFE",
+  2018, "ACEMS Impact and Engagement Award", # For publication of package; 'spinifex'
+  2018, "UseR 2018! Datathon, third place",  # Avian temporal-spacial shiny
+  2012, "LOOK UP ISU AWARDS AND HONORS HERE -- SEVERAL",
+  2009, "LOOK UP ISU AWARDS AND HONORS HERE -- SEVERAL",
+  2008, "American Legion award"
 ) %>%
   baretable()
 ```
