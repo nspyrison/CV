@@ -62,6 +62,67 @@
 
 \date{March 2020}
 
+%%%% BIBLIOGRAPHY
+% Bibliography formatting
+
+\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, terseinits=true, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
+
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+\DeclareFieldFormat{extradate}{}
+
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+
+%\makeatletter
+%\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
+%\makeatother
+
+\setlength{\bibitemsep}{1.8pt}
+\setlength{\bibhang}{.9cm}
+%\renewcommand{\bibfont}{\fontsize{12}{14}}
+
+\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.9cm\hbox to 0.9cm{\hfill\arabic{papers}.~\,}}
+\defbibenvironment{bibliography}
+{\list{}
+  {\setlength{\leftmargin}{\bibhang}%
+   \setlength{\itemsep}{\bibitemsep}%
+   \setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\bibitem}
+
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\selectfont}
+% Counters for keeping track of papers
+\newcounter{papers}
+
+\DeclareSortingTemplate{ty}{
+  \sort{
+    \field{title}
+  }
+  \sort{
+    \field{year}
+  }
+}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4651459}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4653650}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4655448}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4669710}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4684130}
+\bibliography{C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib, C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib}
 
 \usepackage{paralist,ragged2e,datetime}
 \usepackage[hyphens]{url}
@@ -222,7 +283,7 @@
   2014--2015 & \textbf{Business Intelligence Analyst} -- Heartland Financial USA Inc. \\ 
    & \textit{WebFOCUS – 8.0+, Excel} \\ 
    & \hspace{5 mm} $\bullet~~$ T-SQL development -- high level abstraction \\ 
-  2014--2014 & \textbf{Laboratory Technician} -- The Ames Laboratory & Iowa State University \\ 
+  2014--2014 & \textbf{Laboratory Technician} -- The Ames Laboratory \& Iowa State University \\ 
    & \textit{CAD Inventor, LabVIEW, Excel} \\ 
   2013--2014 & \textbf{Delivery Analyst} -- International Business Machines Cooporation (IBM) \\ 
    & \textit{Excel, VBA, R language} \\ 
@@ -232,10 +293,10 @@
    & \hspace{5 mm} $\bullet~~$ ETL scripting in VBA for greater than 1 FTE savings across the team \\ 
   2012--2012 & \textbf{User Interface Developer} -- Iowa State University \\ 
    & \textit{R language, GitHub, Linux Shell} \\ 
-  2010--2012 & \textbf{Laboratory Technician} -- The Ames Laboratory & Iowa State University \\ 
+  2010--2012 & \textbf{Laboratory Technician} -- The Ames Laboratory \& Iowa State University \\ 
    & \textit{CAD Inventor, LabVIEW, LaTeX, Excel} \\ 
   2009--2009 & \textbf{Physics Tutor} -- Iowa State University \\ 
-   & \hspace{5 mm} $\bullet~~$ Classical physics I & II with calculus \\ 
+   & \hspace{5 mm} $\bullet~~$ Classical physics I \& II with calculus \\ 
    &  \\ 
   \end{tabular}
 
@@ -250,69 +311,129 @@
   2008 & American Legion award \\ 
   \end{tabular}
 
-\hypertarget{research-experience}{%
-\section{Research experience}\label{research-experience}}
-
-\begin{tabular}{ll}
-  2018.07--2019.01 & \textbf{Research Assistant}, National Natural Science Foundation of China \\ 
-  \end{tabular}
+\hypertarget{research}{%
+\section{Research}\label{research}}
 
 \begin{itemize}
 \tightlist
 \item
-  Assisted in the Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data Project.
+  High dimensional visualization via linear projections
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Between 2018 and 2021 (expected) I researched high dimensional visualization espically trough animates across changing bases with various vizualization tours
+  \item
+    One Accepted publication, one R package publication
+  \item
+    Another 3 publications in the pipeline
+  \end{itemize}
 \item
-  Completed the stochastic gradient descent application to the multivariate response surface.
-\item
-  Completed the paper titled \emph{Volatility Analysis for Housing Prices with Bayesian Response
-  Surface Optimization}.
+  Consensed mater physcis (CMP),
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Between 2009 and 2014 I researched pnictide superconductors (iron-based, type II superconductors)
+  \item
+    6 publications across various composistions and dopings
+  \item
+    Drafting and fabrication of fabricated tunnel-diode resonators with 0.01ppm sensitivity for contactly resistivity mesurments
+  \item
+    Cryogenic application up to and including including vacuum turbo-pumped, He3 systems
+  \end{itemize}
 \end{itemize}
 
-\begin{tabular}{ll}
-  2013.04--2014.04 & \textbf{Project Leader}, National Undergraduate Innovation and Entrepreneurship Training Program \\ 
-  \end{tabular}
+\hypertarget{membership}{%
+\section{Membership}\label{membership}}
 
 \begin{itemize}
 \tightlist
 \item
-  Initiated a municipal project, took charge of making overall arrangements for the project, from research topic design, official application of the project fund, plan of the theoretical approaches and research methods to the empirical analysis of the data collected from questionnaire.
+  Australian Centre of Excellence for Mathematical and Statistical Frontiers (ACEMS)
 \item
-  Won the Excellent Prize upon the accomplishment of the research project.
+  Statistical Society of Australia (SSA), Victorian branch
 \item
-  Completed the paper titled \emph{Feasibility Analysis for Developing Commercial Insurance for
-  Losing Only-child Problem of Single-child Families}.
+  American Statistical Association, district 4
+\item
+  Melbourne Users of R Network (MelbURN)
+\item
+  Denver R User Group
+\item
+  Senver SQL Server User Group
+\item
+  R-Ladies Melbourne
+\item
+  Not so standard diviations (R podcast)
+\item
+  The R-podcast
+\item
+  Credidibly Curious(R podcast)
 \end{itemize}
 
-\hypertarget{extracurricular-activities}{%
-\section{Extracurricular activities}\label{extracurricular-activities}}
+\hypertarget{publications}{%
+\section{Publications}\label{publications}}
 
-\begin{tabular}{ll}
-  2012--2014 & \textbf{President}, Survey and Data Analysis Association of CUFE \\ 
-  \end{tabular}
+\hypertarget{phd-thesis}{%
+\subsection{PhD thesis}\label{phd-thesis}}
 
-\begin{itemize}
-\tightlist
-\item
-  Planned a series of publicity activities for the association with more than 10 local universities warmly responding; repeatedly awarded Excellent Prize in student association activities and Advanced Individual Prize in CUFE.
-\item
-  Organized a large quantity of surveys, such as campus bus timetable investigation, campus safety improvement, research on the tutor system in CUFE; obtained several prizes in the relevant contests at different levels.
-\item
-  Twice awarded the Top Association Prize as Class A in CUFE.
-\end{itemize}
+\hypertarget{research-papers}{%
+\subsection{Research papers}\label{research-papers}}
 
-\begin{tabular}{ll}
-  2013--2014 & \textbf{Anchor and Host}, CUFE Radio Station \\ 
-  \end{tabular}
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4651459}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4651459}{spyrison_spinifex_2020}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4651459,heading=none]\setcounter{papers}{0}
 
-\begin{itemize}
-\tightlist
-\item
-  Participated in the broadcast work for the music, travel and interview group, including the script writing, recording, editing and broadcasting.
-\item
-  Host several shows and competitions in CUFE.
-\item
-  Took charge of the preparation and organization of the 5th Anniversary Celebration Evening
-  for thE Campus Radio Station.
-\end{itemize}
+\nocite{spyrison_spinifex_2020}
+
+\hypertarget{software-r-packages}{%
+\subsection{Software (R packages)}\label{software-r-packages}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4653650}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4653650}{spyrison_spinifex_2019}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4653650,heading=none]\setcounter{papers}{0}
+
+\nocite{spyrison_spinifex_2019}
+
+\hypertarget{presentations}{%
+\subsection{Presentations}\label{presentations}}
+
+\hypertarget{research-papers-physics}{%
+\subsection{Research papers, physics}\label{research-papers-physics}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4669710}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4669710}{kim_competition_2014,
+tanatar_interplane_2014,
+cho_doping-dependent_2012-1,
+spyrison_environmental_2012,
+tanatar_evolution_2012,
+rustan_noncontact_2012}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4669710,heading=none]\setcounter{papers}{0}
+
+\nocite{kim_competition_2014,
+tanatar_interplane_2014,
+cho_doping-dependent_2012-1,
+spyrison_environmental_2012,
+tanatar_evolution_2012,
+rustan_noncontact_2012}
+
+\hypertarget{presentations-physics}{%
+\subsection{Presentations, physics}\label{presentations-physics}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4684130}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4684130}{cho_doping-dependent_2012,
+spyrison_oxidative_2012,
+tanatar_temperature-dependent_2012,
+spyrison_development_2011}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs_physics.bib-4684130,heading=none]\setcounter{papers}{0}
+
+\nocite{cho_doping-dependent_2012,
+spyrison_oxidative_2012,
+tanatar_temperature-dependent_2012,
+spyrison_development_2011}
 
 \end{document}

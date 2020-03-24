@@ -1,6 +1,6 @@
 ---
 name: Nicholas Spyrison
-address: "Department of Econometrics & Business Statistics,\\tabularnewline Monash University, VIC 3145, Australia."
+address: "Department of Econometrics \\& Business Statistics,\\tabularnewline Monash University, VIC 3145, Australia."
 www: nspyrison.netlify.com
 phone: +61 (4) 2277 0555
 email: "Nicholas.Spyrison@monash.edu"
@@ -8,7 +8,7 @@ twitter: nspyrison
 github: nspyrison
 linkedin: nspyrison
 date: "`r format(Sys.time(), '%B %Y')`"
-headcolor: "0044cc" # String hex color code without '#'
+headcolor: "0044cc" ## String hex color code without '#'
 output: 
   vitae::hyndman:
   keep_tex: true 
@@ -17,6 +17,7 @@ header_includes:
   - renewcommand{\bibfont}{\normalfont\fontsize{12}{15}\sffamily}
   - \usepackage{graphicx}
   - \usepackage{amsmath}
+  ## - \def\textkeyword{\tiny \textcolor{green}} ## Call with \\textkeyword{text}
 ---
 
 ```{r setup, include=FALSE}
@@ -25,6 +26,34 @@ library(tidyverse)
 library(vitae)
 library(unpivotr)
 source("baretable.R")
+
+#### Rob's Structure:
+## Education and qualifications
+## Employment history
+## Other positions
+## Honours and awards
+## Current membership
+## Research [summary]
+## Grants
+## Major invited talks
+## Teaching
+## Consulting
+## Adivsory boards
+## Publications (10 subsections)
+
+
+#### Following this, my structure would look like: (add philosophy or no?)
+## Philosophy (ADD?)
+## Education
+## Employment
+## Honours and awards
+## Research [summary: Physics, Statistics]
+## Membership -- community learning and growth
+## Publications
+## >PhD Thesis
+## >Research papers
+## >Software (R packages)
+## >Presentations (REMOVE?)
 ```
 
 # Education
@@ -47,6 +76,7 @@ select(x, Years, Text) %>%
   baretable()
 ```
 
+<!-- $\textkeyword{TEST}$ -->
 
 # Employment
 
@@ -74,7 +104,7 @@ x <- tribble(
   NA, NA, "\\textit{WebFOCUS – 8.0+, Excel}",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
   
-  2014, 2014, "\\textbf{Laboratory Technician} -- The Ames Laboratory & Iowa State University", # ; the Department of Physics & Astronomy
+  2014, 2014, "\\textbf{Laboratory Technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics \\& Astronomy
   NA, NA, "\\textit{CAD Inventor, LabVIEW, Excel}", 
   # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
   
@@ -89,12 +119,12 @@ x <- tribble(
   2012, 2012, "\\textbf{User Interface Developer} -- Iowa State University", # ; the Department of Statistics
   NA, NA, "\\textit{R language, GitHub, Linux Shell}",
   
-  2010, 2012, "\\textbf{Laboratory Technician} -- The Ames Laboratory & Iowa State University", # ; the Department of Physics & Astronomy
+  2010, 2012, "\\textbf{Laboratory Technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics & Astronomy
   NA, NA, "\\textit{CAD Inventor, LabVIEW, LaTeX, Excel}", 
   # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
   
-  2009, 2009, "\\textbf{Physics Tutor} -- Iowa State University", # ; the Department of Physics & Astronomy
-  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Classical physics I & II with calculus",
+  2009, 2009, "\\textbf{Physics Tutor} -- Iowa State University", # ; the Department of Physics \\& Astronomy
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Classical physics I \\& II with calculus",
   
   NA, NA, NA
 )
@@ -119,81 +149,75 @@ tribble(
   baretable()
 ```
 
+# Research
 
-# Research experience
+  * High dimensional visualization via linear projections
+      * Between 2018 and 2021 (expected) I researched high dimensional visualization espically trough animates across changing bases with various vizualization tours
+      * One Accepted publication, one R package publication
+      * Another 3 publications in the pipeline
+  * Consensed mater physcis (CMP),  
+      * Between 2009 and 2014 I researched pnictide superconductors (iron-based, type II superconductors)
+      * 6 publications across various composistions and dopings
+      * Drafting and fabrication of fabricated tunnel-diode resonators with 0.01ppm sensitivity for contactly resistivity mesurments
+      * Cryogenic application up to and including including vacuum turbo-pumped, He3 systems
 
-```{r research1, results='asis'}
-## TODO: UPDATE
-tribble(
-  ~Start, ~End, ~Project,
-  2018.07, 2019.01, "\\textbf{Research Assistant}, National Natural Science Foundation of China",
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Project) %>%
-  baretable()
-```
   
-  * Assisted in the Efficient Bayesian Flexible Density Methods with High Dimensional Financial Data Project.
-  * Completed the stochastic gradient descent application to the multivariate response surface.
-  * Completed the paper titled *Volatility Analysis for Housing Prices with Bayesian Response
-Surface Optimization*.
+# Membership
 
-```{r research2, results='asis'}
-## TODO: UPDATE
-tribble(
-  ~Start, ~End, ~Project,
-  2013.04, 2014.04, "\\textbf{Project Leader}, National Undergraduate Innovation and Entrepreneurship Training Program",
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Project) %>%
-  baretable()
+  * Australian Centre of Excellence for Mathematical and Statistical Frontiers (ACEMS)
+  * Statistical Society of Australia (SSA), Victorian branch
+  * American Statistical Association, district 4
+  * Melbourne Users of R Network (MelbURN)
+  * Denver R User Group
+  * Senver SQL Server User Group
+  * R-Ladies Melbourne
+  * Not so standard diviations (R podcast)
+  * The R-podcast
+  * Credidibly Curious(R podcast)
+
+# Publications
+
+<!-- \renewcommand{\bibfont}{\normalfont\fontsize{10}{11.8}\sffamily} -->
+
+## PhD thesis
+```{r thesis, eval=F}
+bibliography_entries("nssPubs.bib") %>%
+  filter(bibtype == "PhdThesis") %>%
+  arrange(desc(date), title)
 ```
-  
-  * Initiated a municipal project, took charge of making overall arrangements for the project, from research topic design, official application of the project fund, plan of the theoretical approaches and research methods to the empirical analysis of the data collected from questionnaire.
-  * Won the Excellent Prize upon the accomplishment of the research project.
-  * Completed the paper titled *Feasibility Analysis for Developing Commercial Insurance for
-Losing Only-child Problem of Single-child Families*.
 
-
-# Extracurricular activities
-
-```{r activity1, results='asis'}
-## TODO: UPDATE
-tribble(
-  ~Start, ~End, ~Project,
-  2012., 2014, "\\textbf{President}, Survey and Data Analysis Association of CUFE",
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Project) %>%
-  baretable()
+## Research papers
+```{r papers}
+bibliography_entries("nssPubs.bib") %>%
+  filter(bibtype == "Article") %>%
+  arrange(desc(date), title)
 ```
-  
-  * Planned a series of publicity activities for the association with more than 10 local universities warmly responding; repeatedly awarded Excellent Prize in student association activities and Advanced Individual Prize in CUFE.
-  * Organized a large quantity of surveys, such as campus bus timetable investigation, campus safety improvement, research on the tutor system in CUFE; obtained several prizes in the relevant contests at different levels.
-  * Twice awarded the Top Association Prize as Class A in CUFE.
 
-```{r activity2, results='asis'}
-## TODO: UPDATE
-tribble(
-  ~Start, ~End, ~Project,
-  2013, 2014, "\\textbf{Anchor and Host}, CUFE Radio Station",
-) %>%
-  arrange(-Start) %>%
-  mutate(End = replace_na(End, "")) %>%
-  mutate(Years = paste(Start, "--", End, sep = "")) %>%
-  select(Years, Project) %>%
-  baretable()
+## Software (R packages)
+```{r software}
+bibliography_entries("nssPubs.bib") %>%
+  filter(bibtype == "Software") %>%
+  arrange(desc(date), title)
 ```
-  
-  * Participated in the broadcast work for the music, travel and interview group, including the script writing, recording, editing and broadcasting.
-  * Host several shows and competitions in CUFE.
-  * Took charge of the preparation and organization of the 5th Anniversary Celebration Evening
-for thE Campus Radio Station.
 
+## Presentations
+```{r presentations}
+bibliography_entries("nssPubs.bib") %>%
+  filter(bibtype == "InProceedings") %>%
+  arrange(desc(date), title)
+```
+
+## Research papers, physics
+```{r papers-phys}
+bibliography_entries("nssPubs_physics.bib") %>%
+  filter(bibtype == "Article") %>%
+  arrange(desc(date), title)
+```
+
+## Presentations, physics
+```{r presentations-phys}
+bibliography_entries("nssPubs_physics.bib") %>%
+  filter(bibtype == "InProceedings") %>%
+  arrange(desc(date), title)
+```
 
