@@ -187,35 +187,35 @@ bibliography_entries("nssPubs.bib") %>%
 ```
 
 ## Research papers
-```{r papers}
+```{r papers, eval=T}
 bibliography_entries("nssPubs.bib") %>%
   filter(bibtype == "Article") %>%
   arrange(desc(date), title)
 ```
 
 ## Software (R packages)
-```{r software}
+```{r software, eval=F}
 bibliography_entries("nssPubs.bib") %>%
   filter(bibtype == "Software") %>%
   arrange(desc(date), title)
 ```
 
 ## Presentations
-```{r presentations}
+```{r presentations, eval=F}
 bibliography_entries("nssPubs.bib") %>%
   filter(bibtype == "InProceedings") %>%
   arrange(desc(date), title)
 ```
 
 ## Research papers, physics
-```{r papers-phys}
+```{r papers-phys, eval=F}
 bibliography_entries("nssPubs_physics.bib") %>%
   filter(bibtype == "Article") %>%
   arrange(desc(date), title)
 ```
 
 ## Presentations, physics
-```{r presentations-phys}
+```{r presentations-phys, eval=F}
 bibliography_entries("nssPubs_physics.bib") %>%
   filter(bibtype == "InProceedings") %>%
   arrange(desc(date), title)
