@@ -7,7 +7,7 @@ email: "Rob.Hyndman@monash.edu"
 twitter: robjhyndman
 github: robjhyndman
 date: "`r format(Sys.time(), '%B %Y')`"
-headcolor: "000088"
+# headcolor: "000088"
 output:
   vitae::hyndman:
     keep_tex: yes

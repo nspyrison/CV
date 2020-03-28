@@ -62,63 +62,6 @@
 
 \date{March 2020}
 
-%%%% BIBLIOGRAPHY
-% Bibliography formatting
-
-\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, terseinits=true, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
-
-\DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat[article]{pages}{#1}
-\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
-\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
-\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
-\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
-\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
-\DeclareFieldFormat[article]{url}{}
-\DeclareFieldFormat[inproceedings]{title}{#1}
-\DeclareFieldFormat{shorthandwidth}{#1}
-\DeclareFieldFormat{extradate}{}
-
-% No dot before number of articles
-\usepackage{xpatch}
-\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
-
-% Remove In: for an article.
-\renewbibmacro{in:}{%
-  \ifentrytype{article}{}{%
-  \printtext{\bibstring{in}\intitlepunct}}}
-
-%\makeatletter
-%\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
-%\makeatother
-
-\setlength{\bibitemsep}{1.8pt}
-\setlength{\bibhang}{.9cm}
-%\renewcommand{\bibfont}{\fontsize{12}{14}}
-
-\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.9cm\hbox to 0.9cm{\hfill\arabic{papers}.~\,}}
-\defbibenvironment{bibliography}
-{\list{}
-  {\setlength{\leftmargin}{\bibhang}%
-   \setlength{\itemsep}{\bibitemsep}%
-   \setlength{\parsep}{\bibparsep}}}
-{\endlist}
-{\bibitem}
-
-\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\selectfont}
-% Counters for keeping track of papers
-\newcounter{papers}
-
-\DeclareSortingTemplate{ty}{
-  \sort{
-    \field{title}
-  }
-  \sort{
-    \field{year}
-  }
-}
-\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4089067}
-\bibliography{C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib}
 
 \usepackage{paralist,ragged2e,datetime}
 \usepackage[hyphens]{url}
@@ -246,6 +189,8 @@
 \maketitle
 
 
+\(\tiny \textcolor{red}{TEST}\)
+
 \hypertarget{education}{%
 \section{Education}\label{education}}
 
@@ -307,13 +252,13 @@
   2008 & American Legion award \\ 
   \end{tabular}
 
-\hypertarget{research}{%
-\section{Research}\label{research}}
+\hypertarget{research-summary}{%
+\section{Research summary}\label{research-summary}}
 
 \begin{itemize}
 \tightlist
 \item
-  High dimensional visualization via linear projections
+  Visualization of multivariate spaces
 
   \begin{itemize}
   \tightlist
@@ -370,29 +315,56 @@
 \hypertarget{publications}{%
 \section{Publications}\label{publications}}
 
-\hypertarget{phd-thesis}{%
-\subsection{PhD thesis}\label{phd-thesis}}
+\[
+\bibentry\{spyrison\_spinifex\_2020\}
+\]
 
-\hypertarget{research-papers}{%
-\subsection{Research papers}\label{research-papers}}
+\[
+\bibliography\{nssPubs\}
+\]
 
-\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4089067}{}
-\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4089067}{spyrison_spinifex_2020}
-\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
-\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/nssPubs.bib-4089067,heading=none]\setcounter{papers}{0}
+\(\to \infty\)
 
-\nocite{spyrison_spinifex_2020}
+\hypertarget{visualization-of-multivariate-spaces}{%
+\subsection{Visualization of multivariate spaces}\label{visualization-of-multivariate-spaces}}
 
-\hypertarget{software-r-packages}{%
-\subsection{Software (R packages)}\label{software-r-packages}}
+bibtype Software not implemented
 
-\hypertarget{presentations}{%
-\subsection{Presentations}\label{presentations}}
+{[}2{]} N. Spyrison and Dianne Cook. ``spinifex: An R Package for Creating a
+Manual Tour of Low-dimensional Projections of Multivariate Data''. In:
+\emph{The R Journal} 12.1 (2020), p.~(accepted).
 
-\hypertarget{research-papers-physics}{%
-\subsection{Research papers, physics}\label{research-papers-physics}}
+\hypertarget{superconductors-condensed-matter-physics}{%
+\subsection{Superconductors, condensed matter physics}\label{superconductors-condensed-matter-physics}}
 
-\hypertarget{presentations-physics}{%
-\subsection{Presentations, physics}\label{presentations-physics}}
+{[}1{]} K. Cho, M. A. Tanatar, N. Spyrison, et al.~``Doping-dependent
+anisotropic superconducting gap in Na 1- Î´ (Fe 1- x Co x) As from
+London penetration depth''. In: \emph{Physical Review B} 86.2 (2012).
+Publisher: APS, p.~020508.
+
+{[}2{]} H. Kim, M. A. Tanatar, W. E. Straszheim, et al.~``Competition
+between superconductivity and magnetic/nematic order as a source of
+anisotropic superconducting gap in underdoped Ba 1- x K x Fe 2 As 2''.
+In: \emph{Physical Review B} 90.1 (2014). Publisher: APS, p.~014517.
+
+{[}3{]} G. E. Rustan, N. S. Spyrison, A. Kreyssig, et al.~``Noncontact
+technique for measuring the electrical resistivity and magnetic
+susceptibility of electrostatically levitated materials''. In: \emph{Review
+of Scientific Instruments} 83.10 (2012). Publisher: American Institute
+of Physics, p.~103907.
+
+{[}4{]} N. Spyrison, M. A. Tanatar, K. Cho, et al.~``Environmental stability
+and anisotropic resistivity of Co-doped Na 1- Î´ Fe 1- x Co x As''. In:
+\emph{Physical Review B} 86.14 (2012). Publisher: APS, p.~144528.
+
+{[}5{]} M. A. Tanatar, N. Spyrison, K. Cho, et al.~``Evolution of normal and
+superconducting properties of single crystals of Na 1â€``Î´ FeAs upon
+interaction with environment''. In: \emph{Physical Review B} 85.1 (2012).
+Publisher: APS, p.~014510.
+
+{[}6{]} M. A. Tanatar, W. E. Straszheim, H. Kim, et al.~``Interplane
+resistivity of underdoped single crystals (Ba\_\{1-x\} K\_ x)Fe\_2As\_2
+(0 â‰¤ x â‰¤ 0.34)''. In: \emph{Physical Review B} 89.14 (2014). Publisher:
+APS, p.~144514.
 
 \end{document}

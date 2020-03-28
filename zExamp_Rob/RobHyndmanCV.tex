@@ -1,0 +1,1548 @@
+%% Template for a CV
+%% Author: Rob J Hyndman
+
+\documentclass[10pt,a4paper,]{article}
+\usepackage[scaled=0.86]{DejaVuSansMono}
+\usepackage[sfdefault,lf,t]{carlito}
+
+% Change color to blue
+\usepackage{color,xcolor}
+\definecolor{headcolor}{HTML}{990000}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true,hidelinks]{hyperref}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{geometry}
+\geometry{left=1.75cm,right=1.75cm,top=2.2cm,bottom=2cm}
+
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\date{March 2020}
+
+%%%% BIBLIOGRAPHY
+% Bibliography formatting
+
+\usepackage[sorting=ynt,citestyle=authoryear,bibstyle=authoryear-comp,defernumbers=true,maxnames=20,giveninits=true, bibencoding=utf8, terseinits=true, uniquename=init,dashed=false,doi=false,isbn=false,natbib=true,backend=biber]{biblatex}
+
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[inproceedings]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
+\DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+\DeclareFieldFormat[article]{url}{}
+\DeclareFieldFormat[inproceedings]{title}{#1}
+\DeclareFieldFormat{shorthandwidth}{#1}
+\DeclareFieldFormat{extradate}{}
+
+% No dot before number of articles
+\usepackage{xpatch}
+\xpatchbibmacro{volume+number+eid}{\setunit*{\adddot}}{}{}{}
+
+% Remove In: for an article.
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+
+%\makeatletter
+%\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
+%\makeatother
+
+\setlength{\bibitemsep}{1.8pt}
+\setlength{\bibhang}{.9cm}
+%\renewcommand{\bibfont}{\fontsize{12}{14}}
+
+\renewcommand*{\bibitem}{\addtocounter{papers}{1}\item \mbox{}\hskip-0.9cm\hbox to 0.9cm{\hfill\arabic{papers}.~\,}}
+\defbibenvironment{bibliography}
+{\list{}
+  {\setlength{\leftmargin}{\bibhang}%
+   \setlength{\itemsep}{\bibitemsep}%
+   \setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\bibitem}
+
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{12.4}\selectfont}
+% Counters for keeping track of papers
+\newcounter{papers}
+
+\DeclareSortingTemplate{ty}{
+  \sort{
+    \field{title}
+  }
+  \sort{
+    \field{year}
+  }
+}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5689007}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5749901}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5811002}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5871545}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5931963}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5992459}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-52823}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-113055}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhreports.bib-165371}
+\DeclareBibliographyCategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/Rpackages.bib-183376}
+\bibliography{C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib, C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhreports.bib, C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/Rpackages.bib}
+
+\usepackage{paralist,ragged2e,datetime}
+\usepackage[hyphens]{url}
+\usepackage{fancyhdr,enumitem,pifont}
+\usepackage[compact,small,sf,bf]{titlesec}
+
+\RaggedRight
+\sloppy
+
+% Header and footer
+\pagestyle{fancy}
+\makeatletter
+\lhead{\sf\textcolor[gray]{0.4}{Curriculum Vitae: \@name}}
+\rhead{\sf\textcolor[gray]{0.4}{\thepage}}
+\cfoot{}
+\def\headrule{{\color[gray]{0.4}\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
+\makeatother
+
+% Header box
+\usepackage{tabularx}
+
+\makeatletter
+\def\name#1{\def\@name{#1}}
+\def\info#1{\def\@info{#1}}
+\makeatother
+\newcommand{\shadebox}[3][.9]{\fcolorbox[gray]{0}{#1}{\parbox{#2}{#3}}}
+
+\usepackage{calc}
+\newlength{\headerboxwidth}
+\setlength{\headerboxwidth}{\textwidth}
+%\addtolength{\headerboxwidth}{0.2cm}
+\makeatletter
+\def\maketitle{
+\thispagestyle{plain}
+\vspace*{-1.4cm}
+\shadebox[0.9]{\headerboxwidth}{\sf\color{headcolor}\hfil
+\hbox to 0.98\textwidth{\begin{tabular}{l}
+\\[-0.3cm]
+\LARGE\textbf{\@name}
+\\[0.7cm]
+\normalsize\textbf{Curriculum Vitae}\\
+\normalsize March 2020
+\end{tabular}
+\hfill\hbox{\fontsize{9}{12}\sf
+\begin{tabular}{@{}rl@{}}
+\@info
+\end{tabular}}}\hfil
+}
+\vspace*{0.2cm}}
+\makeatother
+
+% Section headings
+\titlelabel{}
+\titlespacing{\section}{0pt}{1.5ex}{0.5ex}
+\titleformat*{\section}{\color{headcolor}\large\sf\bfseries}
+\titleformat*{\subsection}{\color{headcolor}\sf\bfseries}
+\titlespacing{\subsection}{0pt}{1ex}{0.5ex}
+
+% Miscellaneous dimensions
+\setlength{\parskip}{0ex}
+\setlength{\parindent}{0em}
+\setlength{\headheight}{15pt}
+\setlength{\tabcolsep}{0.15cm}
+\clubpenalty = 10000
+\widowpenalty = 10000
+\setlist{itemsep=1pt}
+\setdescription{labelwidth=1.2cm,leftmargin=1.5cm,labelindent=1.5cm,font=\rm}
+
+% Make nicer bullets
+\renewcommand{\labelitemi}{\ding{228}}
+
+\usepackage{booktabs,fontawesome}
+%\usepackage[t1,scale=0.86]{sourcecodepro}
+
+\name{Rob J Hyndman}
+\def\imagetop#1{\vtop{\null\hbox{#1}}}
+\info{%
+\raisebox{-0.05cm}{\imagetop{\faicon{map-marker}}} &  \imagetop{\begin{tabular}{@{}l@{}}Department of Econometrics \& Business Statistics,\tabularnewline Monash University, VIC 3800, Australia.\end{tabular}}\\ %
+\faicon{home} & \href{http://robjhyndman.com}{robjhyndman.com}\\% %
+\faicon{phone} & +61 3 9905 5141\\%
+\faicon{envelope} & \href{mailto:Rob.Hyndman@monash.edu}{\nolinkurl{Rob.Hyndman@monash.edu}}\\%
+\faicon{twitter} & \href{https://twitter.com/robjhyndman}{@robjhyndman}\\%
+\faicon{github} & \href{https://github.com/robjhyndman}{robjhyndman}\\%
+%
+%
+%
+}
+
+
+%\usepackage{inconsolata}
+
+
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\usepackage{etoolbox}
+
+% Templates for detailed entries
+% Arguments: what when with where why
+\def\detaileditem#1#2#3#4#5{
+#2 & \parbox[t]{0.85\textwidth}{%
+      \textbf{#1}\hfill{\footnotesize #3}\\
+      \ifx#4\empty\else#4\par\fi%
+      \ifx#5\empty\else{%
+        \vspace{0.1cm}\begin{minipage}{0.7\textwidth}%
+        \begin{itemize}#5\end{itemize}%
+        \end{minipage}}\fi%
+      \vspace{\parsep}}\\}
+%\def\detailedsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\def\detailedsection#1{\begin{longtable}{@{\extracolsep{\fill}}ll}#1\end{longtable}}
+
+% Templates for brief entries
+% Arguments: what when with
+\def\briefitem#1#2#3{
+#2 & \parbox[t]{0.85\textwidth}{%
+      \textbf{#1}\\[-0.1cm]{\footnotesize #3}}\\[0.4cm]}
+%\def\briefsection#1{\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}#1\end{tabular*}}
+\def\briefsection#1{\begin{longtable}{@{\extracolsep{\fill}}ll}#1\end{longtable}}
+
+\def\endfirstpage{\newpage}
+
+\begin{document}
+\maketitle
+
+
+\hypertarget{education-and-qualifications}{%
+\section{Education and qualifications}\label{education-and-qualifications}}
+
+\begin{tabular}{rll}
+  1988 & B.Sc.(Hons) & University of Melbourne \\ 
+  1992 & Ph.D. & University of Melbourne \\ 
+  2000 & A.Stat. & Statistical Society of Australia \\ 
+  \end{tabular}
+
+\hypertarget{employment-history}{%
+\section{Employment history}\label{employment-history}}
+
+\begin{tabular}{ll}
+  2019-- & \textbf{Head}, Department of Econometrics \& Business Statistics, Monash University \\ 
+  2003-- & \textbf{Professor}, Department of Econometrics \& Business Statistics, Monash University \\ 
+  2001--2003 & \textbf{Associate Professor}, Department of Econometrics \& Business Statistics, Monash University \\ 
+  1998--2000 & \textbf{Senior Lecturer}, Department of Econometrics \& Business Statistics, Monash University \\ 
+  1997--1998 & \textbf{Senior Lecturer}, Department of Mathematics and Statistics, Monash University \\ 
+  1995--1996 & \textbf{Lecturer}, Department of Mathematics and Statistics, Monash University \\ 
+  1993--1994 & \textbf{Lecturer}, Department of Statistics, University of Melbourne \\ 
+  1985--1992 & \textbf{Statistical consultant}, Department of Statistics, University of Melbourne \\ 
+  \end{tabular}
+
+\hypertarget{other-positions}{%
+\section{Other positions}\label{other-positions}}
+
+\begin{tabular}{ll}
+  2011-- & \textbf{Editor}, \textit{Journal of Statistical Software} \\ 
+  2001-- & \textbf{Associate Editor}, \textit{International Journal of Forecasting} \\ 
+  2005--2018 & \textbf{Editor-in-Chief}, \textit{International Journal of Forecasting} \\ 
+  2005--2018 & \textbf{Director}, International Institute of Forecasters \\ 
+  2001--2004 & \textbf{Theory and Methods Editor}, \emph{Australian \& New Zealand Journal of Statistics} \\ 
+  \end{tabular}
+
+\hypertarget{honours-and-awards}{%
+\section{Honours and awards}\label{honours-and-awards}}
+
+\begin{tabular}{rl}
+  2016 & KNAW Visiting Professor, TU/Eindhoven, Netherlands \\ 
+  2010 & Dean's Award for excellence in innovation and external collaboration, Monash University \\ 
+  2008 & Dean's award for excellence in research, Monash University \\ 
+  2008 & Vice-Chancellor's award for postgraduate supervisor of the year, Monash University \\ 
+  2007 & Knibbs Lecturer, Statistical Society of Australia (ACT branch) \\ 
+  2007 & Moran Medal for Statistical Science, Australian Academy of Science \\ 
+  2006 & Belz Lecturer, Statistical Society of Australia (Victorian branch) \\ 
+  1998 & Award for excellence in teaching, Monash Science Society \\ 
+  1990 & Finalist, Channel Ten Young Achiever Awards \\ 
+  1988 & Dwights Prize in Statistics, University of Melbourne \\ 
+  1987 & Norma McArthur Prize in Statistics, University of Melbourne \\ 
+  1986 & Second Maurice H. Belz Prize in Statistics, University of Melbourne \\ 
+  \end{tabular}
+
+\hypertarget{current-memberships}{%
+\section{Current memberships}\label{current-memberships}}
+
+\begin{itemize}
+\tightlist
+\item
+  Elected Member, International Statistical Institute
+\item
+  Member, International Institute of Forecasters
+\item
+  Member, International Association for Statistical Computing
+\item
+  Member, Statistical Society of Australia
+\item
+  Member, International Society for Business and Industrial Statistics
+\end{itemize}
+
+\hypertarget{research}{%
+\section{Research}\label{research}}
+
+\begin{itemize}
+\tightlist
+\item
+  Since 1991 I have authored 200 papers, chapters or books on statistical topics (listed on pages \pageref{papersstart}--\pageref{papersend}).
+\item
+  My current research involves the analysis of large collections of time series, and includes visualization, forecasting, reconciliation, modelling and anomaly detection..
+\item
+  I currently supervise five PhD students and one post-doctoral research fellow. I have previously supervised another 25 PhD students and 3 Masters students.
+\item
+  I publish the \href{https://robjhyndman.com/hyndsight}{\emph{Hyndsight}} blog on research issues which receives an average of about 2000 pageviews per day.
+\item
+  I have produced 46 R packages as a result of my research (listed on pages \pageref{packagestart}--\pageref{packageend}) which have been downloaded over 2 million times in the last 12 months.
+\end{itemize}
+
+\hypertarget{grants}{%
+\section{Grants}\label{grants}}
+
+I have acquired (in most cases jointly) about \$6.8 million in external research grants since 2000. External research grants over \$40,000 are listed below.\vspace*{0.2cm}
+
+\begingroup\fontsize{10}{16}
+\begin{tabular}{lp{13.3cm}r}
+   \hline
+2001--2002 & RJ Hyndman. ``Injury management pilot evaluation''. \emph{Funding from WorkCover NSW} & \$42,182 \\ 
+   \\[-0.2cm]2002 & RJ Hyndman. ``Evaluation of PBS forward estimates methodology''. \emph{Funding from Commonwealth Department of Health and Ageing} & \$55,341 \\ 
+   \\[-0.2cm]2004--2006 & G Martin, RD Snyder, RJ Hyndman. ``New approaches to the analysis of count time series''. \emph{Funding from ARC Discovery Grant} & \$172,317 \\ 
+   \\[-0.2cm]2004--2008 & RJ Hyndman. ``Analysis of NPS interventions''. \emph{Funding from National Prescribing Service} & \$120,000 \\ 
+   \\[-0.2cm]2006--2010 & RJ Hyndman, G Athanasopoulos. ``Tourism forecasting''. \emph{Funding from Tourism Australia} & \$312,017 \\ 
+   \\[-0.2cm]2007 & RJ Hyndman. ``Peak energy demand forecasting for South Australia''. \emph{Funding from Electricity Supply Industry Planning Council} & \$78,045 \\ 
+   \\[-0.2cm]2008 & RJ Hyndman. ``PBS forecasting model review''. \emph{Funding from Commonwealth Department of Health and Ageing} & \$46,514 \\ 
+   \\[-0.2cm]2008 & RJ Hyndman. ``Forecasting long-term peak half-hourly electricity demand for Western Australia''. \emph{Funding from Westernpower} & \$42,000 \\ 
+   \\[-0.2cm]2008--2010 & RJ Hyndman. ``The price elasticity of electricity demand in South Australia and Victoria''. \emph{Funding from Victorian Energy Corporation} & \$450,000 \\ 
+   \\[-0.2cm]2009--2011 & B Erbas, M Abramson, M Tang, K Allen, E Newbigin, S Dharmage, RJ Hyndman. ``The impact of outdoor aeroallergen exposure on asthma exacerbations in children and adolescents''. \emph{Funding from National Health and Medical Research Council} & \$454,550 \\ 
+   \\[-0.2cm]2011--2013 & RJ Hyndman, S Fan. ``Development of electricity peak demand and energy forecasts for the SWIS''. \emph{Funding from Independent Market Operator (Western Australia)} & \$93,450 \\ 
+   \\[-0.2cm]2011--2015 & RJ Hyndman. ``Energy demand forecasting''. \emph{Funding from Australian Energy Market Operator} & \$864,200 \\ 
+   \\[-0.2cm]2013--2016 & KA Smith-Miles, RJ Hyndman, L Villanova, M Kah. ``Optimising experimental design for robust product development: a cast study for high-efficiency energy generation''. \emph{Funding from ARC Linkage Grant} & \$362,389 \\ 
+   \\[-0.2cm]2014--2017 & AN Panagiotelis, G Athanasopoulos, RJ Hyndman, F Vahid. ``Macroeconomic forecasting in a “Big Data” world''. \emph{Funding from ARC Discovery Grant} & \$451,034 \\ 
+   \\[-0.2cm]2017--2018 & RJ Hyndman, S Ben Taieb, C Bergmeir. ``Demand forecasting for large-scale dynamic hierarchies in a big data environment''. \emph{Funding from Huawei Innovation Research Program} & \$86,586 \\ 
+   \\[-0.2cm]2017--2019 & KA Smith-Miles, RJ Hyndman, M Munoz Acosta, J Katsifolis. ``Intruder Alert! Detecting and classifying events in noisy time series''. \emph{Funding from ARC Linkage Grant} & \$204,000 \\ 
+   \\[-0.2cm]2017--2019 & RJ Hyndman, D Cook. ``RiskLab Projects: Econometrics''. \emph{Funding from RiskLab at Data61} & \$151,200 \\ 
+   \\[-0.2cm]2017--2021 & N Bean, K Burrage, J de Gier, A Delaigle, P Forrester, T Garoni, RJ Hyndman, R Kohn, D Kroese, K Mengersen, A Pettit, P Pollet, M Roughan, L Ryan, S Sisson, K Smith-Miles, P Taylor, I Turner, M Wand, Y-G Wang. ``ARC Centre of Excellence for Mathematical and Statistical Frontiers''. \emph{Funding from Australian Research Council} & \$554,329 \\ 
+   \\[-0.2cm]2019 & RJ Hyndman, Christoph Bergmeir. ``DeepForecast: Leveraging forecasts on large scales of related time series''. \emph{Funding from Facebook} & \$70,000 \\ 
+   \\[-0.2cm]2019--2020 & C Bergmeir, F Vahid, RJ Hyndman. ``Application of advanced short term power generation forecasting technology for wind and solar farms''. \emph{Funding from Advisian} & \$499,753 \\ 
+   \\[-0.2cm]2019--2022 & K Mengersen, RJ Hyndman, E Petersen, J McGree, R Turner, P Maxwell, B Liquet, J Jones. ``Revolutionising water-quality monitoring in the information age''. \emph{Funding from ARC Linkage Grant} & \$729,855 \\ 
+   \\[-0.2cm]2020--2022 & G Martin, D Frazier, RJ Hyndman, W Maneesoonthorn. ``Loss-based Bayesian prediction''. \emph{Funding from ARC Discovery Grant} & \$393,000 \\ 
+   \\[-0.2cm] \hline
+\end{tabular}
+\endgroup
+
+\newpage
+
+\hypertarget{major-invited-talks}{%
+\section{Major invited talks}\label{major-invited-talks}}
+
+\begin{itemize}
+\tightlist
+\item
+  Belz lecture, \emph{Forecasting and the importance of being uncertain}, Statistical Society of Australia, Melbourne, October 2006.
+\item
+  Knibbs lecture, \emph{Population forecasting and the importance of being uncertain}, Statistical Society of Australia, Melbourne, November 2007.
+\item
+  Invited speaker, \emph{Forecasting functional time series}, Australian Frontiers of Science, Canberra, February 2008.
+\item
+  Keynote speaker, \emph{Extreme Forecasting}, International Symposium on Forecasting, Hong Kong, June 2009.
+\item
+  Workshop leader, \emph{Statistical Forecasting: Principles and Practice}, Swiss Statistical Society, Kandersteg, June 2011.
+\item
+  Invited speaker, \emph{Advances in automatic time series forecasting}, Australian Statistics Conference, Adelaide, July 2012.
+\item
+  Keynote speaker, \emph{Man vs Wild Data}, Young Statisticians Conference, Melbourne, February 2013.
+\item
+  Keynote speaker, \emph{Forecasting without forecasters}, International Symposium on Forecasting, Seoul, June 2013.
+\item
+  Keynote speaker, \emph{Automatic time series forecasting}, ``New Trends on Intelligent Systems and Soft Computing 2014'', University of Granada, Spain, February 2014.
+\item
+  Workshop leader, \emph{State space models for time series}, Australian Bureau of Statistics, May 2014.
+\item
+  Keynote speaker, \emph{Challenges in forecasting peak electricity demand}, Energy Forum, Valais, Switzerland, June 2014.
+\item
+  Workshop leader, \emph{Functional time series in demography}, Humboldt University, Berlin, June 2014.
+\item
+  Workshop leader, \emph{Forecasting: principles and practice}, University of Western Australia, September 2014.
+\item
+  Invited speaker, \emph{Visualization and forecasting of big time series data}, ACEMS Big data workshop, QUT, February 2015.
+\item
+  Keynote speaker, \emph{Exploring the boundaries of predictability: what can we forecast, and when should we give up?}, Yahoo Big Thinkers, June 2015.
+\item
+  Keynote speaker, \emph{Forecasting big time series data using R}, Chinese R conference, Nanchang, October 2015.
+\item
+  Keynote speaker, \emph{Forecasting large collections of related time series}, German Statistical Week, Augsburg, September 2016.
+\item
+  Invited speaker, International Symposium on Energy Analytics, Cairns, June 2017.
+\item
+  Keynote speaker, ICML Time Series Workshop, Sydney, August 2017.
+\item
+  Keynote speaker, Beijing Workshop on Forecasting, November 2017.
+\item
+  Workshop leader, \emph{Forecasting: principles and practice}, New York City, June 2018.
+\item
+  Monash master class, \emph{Forecasting the future of the power industry: What can you learn from smart meter data?}, Melbourne, September 2018.
+\item
+  ISI short course, \emph{High-dimensional time series analysis}, Kuala Lumpur, August 2019.
+\item
+  Workshop leader, \emph{Tidy time series and forecasting in R}, rstudio::conf, San Francisco, January 2020.
+\item
+  Keynote speaker, International Symposium on Forecasting, Rio de Janeiro, July 2020.
+\end{itemize}
+
+\hypertarget{teaching}{%
+\section{Teaching}\label{teaching}}
+
+\begin{itemize}
+\tightlist
+\item
+  In 2018, student evaluations for ``Applied forecasting for business and economics'' gave an average rating for my teaching of 4.82 out of 5, while all students rated ``Advanced statistical modelling'' at 5 out of 5.
+\item
+  In 1998, I received the award for ``Excellence in teaching'' by the Monash Science Society. This is awarded by the students of the Science faculty.
+\item
+  I am author of an innovative textbook with George Athanasopoulos entitled \emph{Forecasting: principles and practice} (\href{https://OTexts.org/fpp2}{\texttt{OTexts.org/fpp2/}}) which is available online and free of charge. The website has an average of over 20000 pageviews per day.
+\end{itemize}
+
+\hypertarget{consulting}{%
+\section{Consulting}\label{consulting}}
+
+\begin{itemize}
+\tightlist
+\item
+  Since 1986, I have worked with several hundred different clients in Australia, the United States, Saudi Arabia, Israel, India, Russia, Switzerland, and the Netherlands. I have produced 248 written consulting reports (listed on pages \pageref{consultingstart}--\pageref{consultingend}).
+\item
+  Six times I have provided expert witness in litigation cases.
+\end{itemize}
+
+\hypertarget{advisory-boards}{%
+\section{Advisory boards}\label{advisory-boards}}
+
+\begin{itemize}
+\tightlist
+\item
+  Member of the Scaling committee, Victorian Tertiary Admissions Centre (1994--). This committee is responsible for producing the ATAR for VCE students.
+\item
+  Member of the ATAR Technical Group for the Australasian Conference of Tertiary Admissions Centres (2003--).
+\item
+  Member of the Indigenous Statistical and Information Advisory Group for the Australian Institute of Health and Welfare (2017--).
+\item
+  Member of the Methodology Advisory Committee for the Australian Bureau of Statistics (2010--2018).
+\end{itemize}
+
+\newpage
+
+\hypertarget{publications}{%
+\section{Publications}\label{publications}}
+
+\renewcommand{\bibfont}{\normalfont\fontsize{10}{11.8}\sffamily}
+
+\hypertarget{phd-thesis}{%
+\subsection{PhD thesis}\label{phd-thesis}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5689007}{}\label{papersstart}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5689007}{phd}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5689007,heading=none]\setcounter{papers}{0}
+
+\nocite{phd}
+
+\hypertarget{books}{%
+\subsection{Books}\label{books}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5749901}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5749901}{ITSM91,
+ITSM94,
+MWH3,
+expsmooth08,
+unbelievable,
+fpp2}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5749901,heading=none]\setcounter{papers}{0}
+
+\nocite{ITSM91,
+ITSM94,
+MWH3,
+expsmooth08,
+unbelievable,
+fpp2}
+
+\hypertarget{refereed-research-papers}{%
+\subsection{Refereed research papers}\label{refereed-research-papers}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5811002}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5811002}{BHG91,
+BH92,
+YW93,
+Hyndman94,
+HDRF95,
+HDR96,
+HBG96,
+HF96,
+GHH97,
+HW97,
+LFSH97,
+GH98,
+FHV00,
+GHTT00,
+HG00,
+BH01,
+EH01,
+Hyndman01,
+lemmings,
+CHW02,
+HKSG02,
+HY02,
+RH02,
+HH03,
+HB03,
+RLH03,
+HHF04,
+Hyndman04,
+SHW04,
+SKHO04,
+BHK05,
+EH05,
+HKPB05,
+HKOS05,
+SH05,
+LCcomparison,
+ijf25,
+Hyndman06,
+HK06,
+KH06,
+NPS06,
+MH06,
+WSH06,
+YH06,
+ZKH06,
+pollen07,
+EHG07,
+NPS07,
+shortseasonal,
+HU07,
+KSH07,
+austourism,
+Gould08,
+HAA08,
+HB08,
+HK08,
+MBH08,
+AHO09,
+hiertourism,
+dSHS09,
+HS09,
+OKSH09,
+WSH09,
+VISTS10,
+EAGE+10,
+HF10,
+HS10,
+KH10,
+VHNC10,
+VHZC10,
+YHE10,
+AH11,
+AHSW11,
+Carta2011,
+DHS11,
+FH10b,
+usertalk11,
+hierarchical,
+longrun,
+Pearce10b,
+Pearce10a,
+SBH11,
+SH11,
+mapcah12,
+EUHSA12,
+FH11,
+HBY13,
+gefcom,
+foresight14,
+fungal14,
+jaci2015,
+acfplots14,
+lagphase,
+smart-meter-quantiles,
+baggedETS,
+gefcom2014,
+fasthts,
+pearce2016exploring,
+temporal-hierarchies,
+fvanaive,
+m3pca,
+hfts,
+dynamicpareto,
+handguns,
+Tham2016,
+tscv,
+bivarridges,
+vizenergy,
+bagginguncertainty,
+crudeoil,
+Water2,
+Water3,
+ausmacrofcast,
+oddwater,
+oddstream,
+mint,
+elections,
+forecastingcompetitions,
+normalizationoutliers,
+forecastingsofa,
+fforma,
+hospital-los,
+tsibble,
+calendarviz,
+nonnegmint}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5811002,heading=none]\setcounter{papers}{0}
+
+\nocite{BHG91,
+BH92,
+YW93,
+Hyndman94,
+HDRF95,
+HDR96,
+HBG96,
+HF96,
+GHH97,
+HW97,
+LFSH97,
+GH98,
+FHV00,
+GHTT00,
+HG00,
+BH01,
+EH01,
+Hyndman01,
+lemmings,
+CHW02,
+HKSG02,
+HY02,
+RH02,
+HH03,
+HB03,
+RLH03,
+HHF04,
+Hyndman04,
+SHW04,
+SKHO04,
+BHK05,
+EH05,
+HKPB05,
+HKOS05,
+SH05,
+LCcomparison,
+ijf25,
+Hyndman06,
+HK06,
+KH06,
+NPS06,
+MH06,
+WSH06,
+YH06,
+ZKH06,
+pollen07,
+EHG07,
+NPS07,
+shortseasonal,
+HU07,
+KSH07,
+austourism,
+Gould08,
+HAA08,
+HB08,
+HK08,
+MBH08,
+AHO09,
+hiertourism,
+dSHS09,
+HS09,
+OKSH09,
+WSH09,
+VISTS10,
+EAGE+10,
+HF10,
+HS10,
+KH10,
+VHNC10,
+VHZC10,
+YHE10,
+AH11,
+AHSW11,
+Carta2011,
+DHS11,
+FH10b,
+usertalk11,
+hierarchical,
+longrun,
+Pearce10b,
+Pearce10a,
+SBH11,
+SH11,
+mapcah12,
+EUHSA12,
+FH11,
+HBY13,
+gefcom,
+foresight14,
+fungal14,
+jaci2015,
+acfplots14,
+lagphase,
+smart-meter-quantiles,
+baggedETS,
+gefcom2014,
+fasthts,
+pearce2016exploring,
+temporal-hierarchies,
+fvanaive,
+m3pca,
+hfts,
+dynamicpareto,
+handguns,
+Tham2016,
+tscv,
+bivarridges,
+vizenergy,
+bagginguncertainty,
+crudeoil,
+Water2,
+Water3,
+ausmacrofcast,
+oddwater,
+oddstream,
+mint,
+elections,
+forecastingcompetitions,
+normalizationoutliers,
+forecastingsofa,
+fforma,
+hospital-los,
+tsibble,
+calendarviz,
+nonnegmint}
+
+\hypertarget{book-chapters}{%
+\subsection{Book chapters}\label{book-chapters}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5871545}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5871545}{AGH95,
+ISGMS02c,
+ISGMS02b,
+IGSMS02a,
+HS08,
+IESS10c,
+IESS10b,
+IESS10a,
+BHT14,
+saschapter2,
+saschapter,
+sampling-multiobjective-optimization,
+colorectal,
+macrohts}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5871545,heading=none]\setcounter{papers}{0}
+
+\nocite{AGH95,
+ISGMS02c,
+ISGMS02b,
+IGSMS02a,
+HS08,
+IESS10c,
+IESS10b,
+IESS10a,
+BHT14,
+saschapter2,
+saschapter,
+sampling-multiobjective-optimization,
+colorectal,
+macrohts}
+
+\hypertarget{papers-in-refereed-conference-proceedings}{%
+\subsection{Papers in refereed conference proceedings}\label{papers-in-refereed-conference-proceedings}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5931963}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5931963}{NAGS86,
+ESAM99,
+IWSM01,
+ISI05,
+WSH05,
+SH09,
+FH10,
+Han10,
+laura1,
+boostingar,
+iwfos14,
+epic,
+cikm2015,
+probhts,
+hftliquidity,
+energy-savings}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5931963,heading=none]\setcounter{papers}{0}
+
+\nocite{NAGS86,
+ESAM99,
+IWSM01,
+ISI05,
+WSH05,
+SH09,
+FH10,
+Han10,
+laura1,
+boostingar,
+iwfos14,
+epic,
+cikm2015,
+probhts,
+hftliquidity,
+energy-savings}
+
+\hypertarget{working-papers-under-revision-or-review}{%
+\subsection{Working papers under revision or review}\label{working-papers-under-revision-or-review}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5992459}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5992459}{hetero06,
+GSI,
+rectify,
+ropes,
+kdd2015,
+str,
+BayesianRankVAR,
+participationrates,
+ausmacrodata,
+smartmeterhts,
+coherentprob,
+earlyclassification,
+tsgeneration,
+fforms,
+mlhts,
+lhf,
+swissexports,
+dobin,
+htsgeometry,
+stray,
+ndisanomalies,
+sfar}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-5992459,heading=none]\setcounter{papers}{0}
+
+\nocite{hetero06,
+GSI,
+rectify,
+ropes,
+kdd2015,
+str,
+BayesianRankVAR,
+participationrates,
+ausmacrodata,
+smartmeterhts,
+coherentprob,
+earlyclassification,
+tsgeneration,
+fforms,
+mlhts,
+lhf,
+swissexports,
+dobin,
+htsgeometry,
+stray,
+ndisanomalies,
+sfar}
+
+\hypertarget{book-reviews}{%
+\subsection{Book reviews}\label{book-reviews}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-52823}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-52823}{BR96,
+BR98b,
+BR98a,
+BR99b,
+BR99c,
+BR99a,
+BR00,
+EH05a}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]
+\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-52823,heading=none]\setcounter{papers}{0}
+
+\nocite{BR96,
+BR98b,
+BR98a,
+BR99b,
+BR99c,
+BR99a,
+BR00,
+EH05a}
+
+\hypertarget{editorials}{%
+\subsection{Editorials}\label{editorials}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-113055}{}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-113055}{IJFeditorial05,
+IJFeditorial06,
+IJFeditorial10b,
+IJFeditorial10a,
+tourismeditorial11,
+IJFeditorial13,
+hyndman2015new,
+hyndman2015change}
+
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhpubs.bib-113055,heading=none]\label{papersend}\setcounter{papers}{0}
+
+\nocite{IJFeditorial05,
+IJFeditorial06,
+IJFeditorial10b,
+IJFeditorial10a,
+tourismeditorial11,
+IJFeditorial13,
+hyndman2015new,
+hyndman2015change}
+
+\hypertarget{statistical-consulting-reports}{%
+\subsection{Statistical consulting reports}\label{statistical-consulting-reports}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhreports.bib-165371}{}\label{consultingstart}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhreports.bib-165371}{BH86,
+BH86a,
+BH86b,
+BH86c,
+BH86d,
+BH86e,
+BH86f,
+BH86g,
+BH86h,
+BH86i,
+Hyndman86,
+HB87,
+HS87,
+HS87a,
+Hyndman88,
+Hyndman88a,
+DH89,
+Hyndman89,
+Hyndman89a,
+Hyndman89b,
+Hyndman89c,
+Hyndman89d,
+HJ89,
+HJ89a,
+JH89,
+JH89a,
+SH89,
+Hyndman90a,
+Hyndman90b,
+Hyndman90c,
+Hyndman90d,
+Hyndman90e,
+Hyndman91,
+Hyndman91a,
+Hyndman92,
+Hyndman92a,
+Hyndman92b,
+Hyndman92c,
+Hyndman93,
+Hyndman93a,
+Hyndman94a,
+HH95a,
+HH95b,
+HH95c,
+HH95,
+Hyndman96,
+HA96,
+HA96a,
+HN96,
+HTM96,
+AH97,
+Hyndman97,
+Hyndman97a,
+Hyndman97b,
+MHA97,
+MHA97a,
+Hyndman98,
+Hyndman98a,
+Hyndman98b,
+Hyndman99,
+Hyndman99a,
+AH00,
+GH00,
+Hyndman00,
+HF00,
+SH00,
+AFH01,
+FH01,
+Hyndman01a,
+Hyndman01b,
+Hyndman01c,
+Hyndman01d,
+HA01,
+HA01a,
+H01,
+HF01,
+HS01,
+FGH02,
+PBS02,
+HS02,
+etag03,
+Hyndman03,
+pollen03,
+etag03a,
+HA03,
+HA03a,
+HS03,
+Hyndman04a,
+Hyndman04b,
+Hyndman04c,
+Hyndman04d,
+Hyndman04e,
+IB04,
+Mirko04,
+HA04,
+HA04a,
+HA04b,
+HA04c,
+HA04d,
+hypertensive04,
+thiazides04,
+fox04,
+H04,
+HD04,
+HG04,
+HG04a,
+H05,
+DH05a,
+MEQ03a,
+MEQ03b,
+MEQ03c,
+Hyndman05,
+Hyndman05a,
+Hyndman05b,
+Hyndman05c,
+ITI05,
+LTPF05,
+Green05,
+HA05,
+HA05a,
+faculty06,
+incitec06,
+MEQ05a,
+MEQ05b,
+MEQ05c,
+MEQ05d,
+parksvic06,
+ACTAC06,
+EDQUM06,
+GAT06,
+ITI06,
+LTPF06,
+Washington06,
+NPS06a,
+NPS06b,
+NPS06c,
+NPS06d,
+NPS06e,
+NPS06f,
+NPS06g,
+NPS06h,
+esipc07c,
+esipc07d,
+GAT07,
+ITI07,
+NPS07a,
+NPS07b,
+NPS07c,
+NPS07d,
+NPS07e,
+NPS07f,
+NPS07g,
+esipc07b,
+esipc07a,
+esipc08f,
+vencorp08b,
+darrelllea08,
+esipc08b,
+esipc08d,
+esipc08e,
+GAT08,
+ITI08,
+pbs08,
+esipc08a,
+esipc08c,
+vencorp08a,
+wpower08a,
+wpower08b,
+wpower08c,
+aihw09,
+esipic09a,
+GAT09,
+IBprerequisites09,
+ITI09,
+esipc09b,
+stlf09,
+vencorp09a,
+vencorp2030,
+cointegration10,
+aemo10a,
+aemo10c,
+GAT10,
+ITI10,
+aemo10b,
+aemo10d,
+SKM10,
+aemo11a,
+aemo11b,
+imo11b,
+ACTBSSS11,
+ITI11,
+nztranspower11,
+imo11,
+AIHW12,
+aemo12a,
+aemo12b,
+aemo12c,
+aemo12d,
+aemo12e,
+ITI12,
+Maddocks12,
+Fonterra12,
+aemo13a,
+aemo13b,
+aemo13c,
+aemo13d,
+aemo13e,
+ITI13,
+NSWJustice13,
+Tableau13,
+aemo14a,
+aemo14b,
+aemo14c,
+aemo14d,
+aemo14e,
+ITI14,
+Powercor14,
+Zafar14,
+aemo14f,
+aemo15a,
+aemo15b,
+aemo15c,
+aemo15d,
+aemo15e,
+ITIspline15,
+ITI15,
+MEFM,
+MonashLA15,
+MonashLA15a,
+MonashLA15b,
+MonashLA15c,
+MonashLA15d,
+MonashLA15e,
+MonashLA15f,
+MonashLA15g,
+MonashLA15h,
+MonashLA15i,
+MonashLA15j,
+MonashLA15profile,
+ITI16,
+ITI17,
+Huawei1,
+ITI18,
+Huawei2,
+Huawei3,
+Advisian1,
+ITI19,
+ITI20}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/rjhreports.bib-165371,heading=none]\label{consultingend}\setcounter{papers}{0}
+
+\nocite{BH86,
+BH86a,
+BH86b,
+BH86c,
+BH86d,
+BH86e,
+BH86f,
+BH86g,
+BH86h,
+BH86i,
+Hyndman86,
+HB87,
+HS87,
+HS87a,
+Hyndman88,
+Hyndman88a,
+DH89,
+Hyndman89,
+Hyndman89a,
+Hyndman89b,
+Hyndman89c,
+Hyndman89d,
+HJ89,
+HJ89a,
+JH89,
+JH89a,
+SH89,
+Hyndman90a,
+Hyndman90b,
+Hyndman90c,
+Hyndman90d,
+Hyndman90e,
+Hyndman91,
+Hyndman91a,
+Hyndman92,
+Hyndman92a,
+Hyndman92b,
+Hyndman92c,
+Hyndman93,
+Hyndman93a,
+Hyndman94a,
+HH95a,
+HH95b,
+HH95c,
+HH95,
+Hyndman96,
+HA96,
+HA96a,
+HN96,
+HTM96,
+AH97,
+Hyndman97,
+Hyndman97a,
+Hyndman97b,
+MHA97,
+MHA97a,
+Hyndman98,
+Hyndman98a,
+Hyndman98b,
+Hyndman99,
+Hyndman99a,
+AH00,
+GH00,
+Hyndman00,
+HF00,
+SH00,
+AFH01,
+FH01,
+Hyndman01a,
+Hyndman01b,
+Hyndman01c,
+Hyndman01d,
+HA01,
+HA01a,
+H01,
+HF01,
+HS01,
+FGH02,
+PBS02,
+HS02,
+etag03,
+Hyndman03,
+pollen03,
+etag03a,
+HA03,
+HA03a,
+HS03,
+Hyndman04a,
+Hyndman04b,
+Hyndman04c,
+Hyndman04d,
+Hyndman04e,
+IB04,
+Mirko04,
+HA04,
+HA04a,
+HA04b,
+HA04c,
+HA04d,
+hypertensive04,
+thiazides04,
+fox04,
+H04,
+HD04,
+HG04,
+HG04a,
+H05,
+DH05a,
+MEQ03a,
+MEQ03b,
+MEQ03c,
+Hyndman05,
+Hyndman05a,
+Hyndman05b,
+Hyndman05c,
+ITI05,
+LTPF05,
+Green05,
+HA05,
+HA05a,
+faculty06,
+incitec06,
+MEQ05a,
+MEQ05b,
+MEQ05c,
+MEQ05d,
+parksvic06,
+ACTAC06,
+EDQUM06,
+GAT06,
+ITI06,
+LTPF06,
+Washington06,
+NPS06a,
+NPS06b,
+NPS06c,
+NPS06d,
+NPS06e,
+NPS06f,
+NPS06g,
+NPS06h,
+esipc07c,
+esipc07d,
+GAT07,
+ITI07,
+NPS07a,
+NPS07b,
+NPS07c,
+NPS07d,
+NPS07e,
+NPS07f,
+NPS07g,
+esipc07b,
+esipc07a,
+esipc08f,
+vencorp08b,
+darrelllea08,
+esipc08b,
+esipc08d,
+esipc08e,
+GAT08,
+ITI08,
+pbs08,
+esipc08a,
+esipc08c,
+vencorp08a,
+wpower08a,
+wpower08b,
+wpower08c,
+aihw09,
+esipic09a,
+GAT09,
+IBprerequisites09,
+ITI09,
+esipc09b,
+stlf09,
+vencorp09a,
+vencorp2030,
+cointegration10,
+aemo10a,
+aemo10c,
+GAT10,
+ITI10,
+aemo10b,
+aemo10d,
+SKM10,
+aemo11a,
+aemo11b,
+imo11b,
+ACTBSSS11,
+ITI11,
+nztranspower11,
+imo11,
+AIHW12,
+aemo12a,
+aemo12b,
+aemo12c,
+aemo12d,
+aemo12e,
+ITI12,
+Maddocks12,
+Fonterra12,
+aemo13a,
+aemo13b,
+aemo13c,
+aemo13d,
+aemo13e,
+ITI13,
+NSWJustice13,
+Tableau13,
+aemo14a,
+aemo14b,
+aemo14c,
+aemo14d,
+aemo14e,
+ITI14,
+Powercor14,
+Zafar14,
+aemo14f,
+aemo15a,
+aemo15b,
+aemo15c,
+aemo15d,
+aemo15e,
+ITIspline15,
+ITI15,
+MEFM,
+MonashLA15,
+MonashLA15a,
+MonashLA15b,
+MonashLA15c,
+MonashLA15d,
+MonashLA15e,
+MonashLA15f,
+MonashLA15g,
+MonashLA15h,
+MonashLA15i,
+MonashLA15j,
+MonashLA15profile,
+ITI16,
+ITI17,
+Huawei1,
+ITI18,
+Huawei2,
+Huawei3,
+Advisian1,
+ITI19,
+ITI20}
+
+\hypertarget{software-r-packages}{%
+\subsection{Software (R packages)}\label{software-r-packages}}
+
+\defbibheading{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/Rpackages.bib-183376}{}\label{packagestart}
+\addtocategory{bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/Rpackages.bib-183376}{Raddb,
+Ranomalous,
+Rbfast,
+Rbinb,
+Rcompenginets,
+Rcricketdata,
+Rdemography,
+Reechidna,
+Remma,
+Rexpsmooth,
+Rfable,
+Rfabletools,
+Rfds,
+Rfeasts,
+Rfma,
+Rforecast,
+Rfpp,
+Rfpp2,
+Rfpp3,
+Rftsa,
+Rgratis,
+Rgravitas,
+Rhdrcde,
+Rhts,
+RMcomp,
+RMEFM,
+RMonashEBSTemplates,
+Roddstream,
+Roddwater,
+Rozbabynames,
+Rrainbow,
+Rrcademy,
+Rrmarkdown,
+Rrobets,
+Rseer,
+RsmoothAPC,
+RstR,
+Rstray,
+Rsugrrants,
+Rthief,
+Rtscompdata,
+Rtsdl,
+Rtsfeatures,
+Rtsibble,
+Rtsibbledata,
+Rvitae}
+\newrefcontext[sorting=none]\setcounter{papers}{0}\pagebreak[3]\printbibliography[category=bib-C:/Users/Nicholas Spyrison/Documents/R/CV/zExamp_Rob/Rpackages.bib-183376,heading=none]\label{packageend}\setcounter{papers}{0}
+
+\nocite{Raddb,
+Ranomalous,
+Rbfast,
+Rbinb,
+Rcompenginets,
+Rcricketdata,
+Rdemography,
+Reechidna,
+Remma,
+Rexpsmooth,
+Rfable,
+Rfabletools,
+Rfds,
+Rfeasts,
+Rfma,
+Rforecast,
+Rfpp,
+Rfpp2,
+Rfpp3,
+Rftsa,
+Rgratis,
+Rgravitas,
+Rhdrcde,
+Rhts,
+RMcomp,
+RMEFM,
+RMonashEBSTemplates,
+Roddstream,
+Roddwater,
+Rozbabynames,
+Rrainbow,
+Rrcademy,
+Rrmarkdown,
+Rrobets,
+Rseer,
+RsmoothAPC,
+RstR,
+Rstray,
+Rsugrrants,
+Rthief,
+Rtscompdata,
+Rtsdl,
+Rtsfeatures,
+Rtsibble,
+Rtsibbledata,
+Rvitae}
+
+\end{document}

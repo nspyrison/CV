@@ -12,13 +12,19 @@ headcolor: "0044cc" ## String hex color code without '#'
 output: 
   vitae::hyndman:
   keep_tex: true 
+bibliography: nssPubs.bib
 header_includes:
   - \ExecuteBibliographyOptions{useprefix=true}
   - renewcommand{\bibfont}{\normalfont\fontsize{12}{15}\sffamily}
   - \usepackage{graphicx}
   - \usepackage{amsmath}
-  ## - \def\textkeyword{\tiny \textcolor{green}} ## Call with \\textkeyword{text}
+  - \usepackage{bibentry} #% needed for \bibentry to force print all bib entries
+  - \usepackage{color} #% needed for \textcolor 
+  - \newcommand{\nsKeyword}{\tiny \textcolor{red}}
+  ## Call with $\nsKeyword{text}$
 ---
+
+$\nsKeyword{TEST}$
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, message = F, collapse = T)
@@ -26,6 +32,19 @@ library(tidyverse)
 library(vitae)
 library(unpivotr)
 source("baretable.R")
+### Troubles with bib files:
+library(RefManageR)
+# RefManageR::PrintBibliography(bib, .opts = list(), start = 1, end = length(bib))
+z<-RefManageR::ReadBib("./nssPubs.bib")
+# class(z)
+# str(z)
+# z[2]
+# nssPubs_bib <- bibtex::read.bib(paste0(getwd(),"/nssPubs.bib"))
+# biblio <- bibtex::read.bib("my-biblio-database.bib")
+
+PrintBibliography(z, .opts = list(style = "latex",
+                  bib.style = "authoryear"))
+
 
 #### Rob's Structure:
 ## Education and qualifications
@@ -76,7 +95,7 @@ select(x, Years, Text) %>%
   baretable()
 ```
 
-<!-- $\textkeyword{TEST}$ -->
+
 
 # Employment
 
@@ -149,9 +168,9 @@ tribble(
   baretable()
 ```
 
-# Research
+# Research summary
 
-  * High dimensional visualization via linear projections
+  * Visualization of multivariate spaces
       * Between 2018 and 2021 (expected) I researched high dimensional visualization espically trough animates across changing bases with various vizualization tours
       * One Accepted publication, one R package publication
       * Another 3 publications in the pipeline
@@ -177,47 +196,35 @@ tribble(
 
 # Publications
 
+
+
+$$
+\bibentry\{spyrison\_spinifex\_2020\}
+$$
+
+
+$$
+\bibliography\{nssPubs\}
+$$
+
+<!-- \\lim_{x\\to\\infty} -->
+<!-- \\bibentry{spyrison_spinifex_2020} -->
 <!-- \renewcommand{\bibfont}{\normalfont\fontsize{10}{11.8}\sffamily} -->
+<!-- ## PhD thesis -->
+<!-- ## Research papers -->
+<!-- ## Software (R packages) -->
+<!-- ## Presentations -->
+<!-- ## Research papers, physics -->
+$\to \infty$
 
-## PhD thesis
-```{r thesis, eval=F}
-bibliography_entries("nssPubs.bib") %>%
-  filter(bibtype == "PhdThesis") %>%
-  arrange(desc(date), title)
+## Visualization of multivariate spaces
+```{r ref-highDimVis, results='asis'}
+RefManageR::ReadBib("./nssPubs.bib")
 ```
 
-## Research papers
-```{r papers, eval=T}
-bibliography_entries("nssPubs.bib") %>%
-  filter(bibtype == "Article") %>%
-  arrange(desc(date), title)
+## Superconductors, condensed matter physics
+```{r ref-physics, results='asis'}
+RefManageR::ReadBib("./nssPubs_physics.bib")
 ```
 
-## Software (R packages)
-```{r software, eval=F}
-bibliography_entries("nssPubs.bib") %>%
-  filter(bibtype == "Software") %>%
-  arrange(desc(date), title)
-```
-
-## Presentations
-```{r presentations, eval=F}
-bibliography_entries("nssPubs.bib") %>%
-  filter(bibtype == "InProceedings") %>%
-  arrange(desc(date), title)
-```
-
-## Research papers, physics
-```{r papers-phys, eval=F}
-bibliography_entries("nssPubs_physics.bib") %>%
-  filter(bibtype == "Article") %>%
-  arrange(desc(date), title)
-```
-
-## Presentations, physics
-```{r presentations-phys, eval=F}
-bibliography_entries("nssPubs_physics.bib") %>%
-  filter(bibtype == "InProceedings") %>%
-  arrange(desc(date), title)
-```
 
