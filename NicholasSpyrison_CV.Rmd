@@ -198,24 +198,21 @@ tribble(
 
 
 
-$$
-\bibentry\{spyrison\_spinifex\_2020\}
-$$
+<!-- $$ -->
+<!-- \bibentry\{spyrison\_spinifex\_2020\} -->
+<!-- $$ -->
 
+<!-- $$ -->
+<!-- \bibliography\{nssPubs\} -->
+<!-- $$ -->
 
-$$
-\bibliography\{nssPubs\}
-$$
-
-<!-- \\lim_{x\\to\\infty} -->
-<!-- \\bibentry{spyrison_spinifex_2020} -->
 <!-- \renewcommand{\bibfont}{\normalfont\fontsize{10}{11.8}\sffamily} -->
 <!-- ## PhD thesis -->
 <!-- ## Research papers -->
 <!-- ## Software (R packages) -->
 <!-- ## Presentations -->
 <!-- ## Research papers, physics -->
-$\to \infty$
+
 
 ## Visualization of multivariate spaces
 ```{r ref-highDimVis, results='asis'}
