@@ -1,6 +1,6 @@
 ---
 name: Nicholas Spyrison
-address: "Department of Human-Centred Computing \\tabularnewline H600 Monash University Caulfield, VIC 3145, Australia."
+address: "Department of Human-Centred Computing \\tabularnewline H600 Monash University Caulfield, VIC 3145, Australia"
 www: nspyrison.netlify.com
 phone: +61 (4) 2277 0555
 email: "Nicholas.Spyrison@monash.edu"
@@ -39,11 +39,11 @@ library(RefManageR) ## printing bib entry workaround.
 ```{r results='asis'}
 x <- tribble(
   ~Start, ~End, ~Text,
-  2018, "\\textit{2021}", "\\textit{Ph.D. Information Technology} 
+  2018, "\\textit{2021}", "\\textit{(expected) Ph.D. Information Technology} 
     \\hfill Monash University, Clayton, VIC, AUS",
   NA, NA, "Thesis: New Tools for User-guided Exploration of Linear Projections \\hspace{60 mm}", #hspace longest line
   
-  2008, 2012, "\\textit{B.Sc. Statistics}
+  2008, 2012, "\\textit{B.Sc. statistics}
     \\hfill Iowa State University, Ames, IA, USA",
   NA, NA, "Minors: physics and mathematics"
 ) 
@@ -62,46 +62,46 @@ select(x, Years, Text) %>%
 x <- tribble(
   ~Start, ~End, ~Position,
   2020, 2020, "Teaching assistant, data exploration and visualization -- Monash University", # FIT 5147
-  2018, 2018, "Research officer, Human geology -- Monash University", # R Language, ETL of AUS census, 3 censuses of Melb, 2 of Sydn 
+  2018, 2018, "Research officer, human geology -- Monash University", # R Language, ETL of AUS census, 3 censuses of Melb, 2 of Sydn 
   2019, 2019, "Teaching assistant, business and economic statistics -- Monash University", #ETC1000 
-  2018, 2019, "Research officer, Criminology -- Monash University", # R Language, ETL and analysis gauguing communitiy interaction across intervention
+  2018, 2019, "Research officer, criminology -- Monash University", # R Language, ETL and analysis gauguing communitiy interaction across intervention
 
-  2016, 2018, "\\textbf{Business Intelligence Developer} --  CPI Card Group Inc.",
+  2016, 2018, "\\textbf{Business intelligence developer} --  CPI Card Group Inc.",
   NA, NA, "\\textit{T-SQL - 2012 (SSMS, SSRS), R language, GitHub, Crystal Reports, Oracle BICS, Excel}",
-  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Supply chain reporting leading to more than \\$4 M USD cost reduction",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Supply chain reporting leading to more than 4 million USD cost reduction for one location",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- mid-high level abstraction",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ 4 reporting tools across multiple database instances",
   
-  2015, 2016, "\\textbf{Business Intelligence Developer} -- United Dominion Realty Trust Inc. (UDR)",
+  2015, 2016, "\\textbf{Business intelligence developer} -- United Dominion Realty Trust Inc. (UDR)",
   NA, NA, "\\textit{T-SQL - 2012 \\& 2016 (SSMS, SSRS, SSAS - MOLAP Cube), PowerBI, WebFOCUS – 8.0+, Excel}",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ 3 reporting tools across several database instances",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ On-call for enterprize-wide nightly data process",
   
-  2014, 2015, "\\textbf{Business Intelligence Analyst} -- Heartland Financial USA Inc.",
+  2014, 2015, "\\textbf{Business intelligence analyst} -- Heartland Financial USA Inc.",
   NA, NA, "\\textit{WebFOCUS – 8.0+, Excel}",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
   
-  2014, 2014, "\\textbf{Laboratory Technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics \\& Astronomy
+  2014, 2014, "\\textbf{Laboratory technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics \\& Astronomy
   NA, NA, "\\textit{CAD Inventor, LabVIEW, Excel}", 
   # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
   
-  2013, 2014, "\\textbf{Delivery Analyst} -- International Business Machines Corporation  (IBM)",
+  2013, 2014, "\\textbf{Delivery analyst} -- International Business Machines Corporation (IBM)",
   NA, NA, "\\textit{Excel, VBA, R language}",
-  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and mid management",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and middle management",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ IBM’s process improvement methodology, root cause analysis, process behavior analysis", # IBM ver is Global distribution framework, GDF
-  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and mid management",
+  NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and middle management",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Automated cleaning and metric creation in VBA for greater than 1 FTE savings across the team",
 
   
-  2012, 2012, "\\textbf{User Interface Developer} -- Iowa State University", # ; the Department of Statistics
+  2012, 2012, "\\textbf{User interface developer} -- Iowa State University", # ; the Department of Statistics
   NA, NA, "\\textit{R language, GitHub, Linux Shell}",
   
-  2010, 2012, "\\textbf{Laboratory Technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics & Astronomy
+  2010, 2012, "\\textbf{Laboratory technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics & Astronomy
   NA, NA, "\\textit{CAD Inventor, LabVIEW, LaTeX, Excel}", 
   # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
   
-  2009, 2009, "\\textbf{Physics Tutor} -- Iowa State University", # ; the Department of Physics \\& Astronomy
+  2009, 2009, "\\textbf{Physics tutor} -- Iowa State University", # ; the Department of Physics \\& Astronomy
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Classical physics I \\& II with calculus",
   
   NA, NA, NA
@@ -119,26 +119,30 @@ select(x, Years, Position) %>%
 tribble(
   ~Year, ~Award,
   2018, "ACEMS Impact and Engagement Award, for development of the R package spinifex", # For publication of package; 'spinifex'
-  2018, "UseR 2018! Datathon, 3rd place, of 5 teams, for a temporal-spatial shiny dashboard of avian sightings in Australia",
+    NA, "for development of the R package spinifex",
+  2018, "UseR 2018! Datathon, 3rd place, of 5 teams",
+      NA, "for a temporal-spatial shiny dashboard of avian sightings in Australia",
+
   # 2012, "LOOK UP ISU AWARDS AND HONORS HERE -- SEVERAL", ## They aren't in dropbox or email, double-checked 29/03/2020.
   # 2009, "LOOK UP ISU AWARDS AND HONORS HERE -- SEVERAL",
-  2008, "American Legion award"
+  2008, "American Legion School Award",
+  NA, "for character, especially 'courage, honor, service, leadership, and scholarship', as nominated by my Mock Trial coach"
 ) %>%
   baretable()
 ```
 
 # Research summary
 
-  * Visualization of multivariate spaces
-      * Between 2018 and 2021 (expected) I researched high dimensional visualization especially through animates across changing bases with various visualization tours
-      * 1 Accepted publication, 1 R package publication
-      * Another 3 publications in the pipeline
-  * Superconductors, condensed matter physics 
-      * Between 2009 and 2014 researched pnictide superconductors (iron-based, type II superconductivity)
-      * 6 publications across various compositions and dopings
-      * Drafting and fabrication of fabricated tunnel-diode resonators with 0.01ppm sensitivity for contactless resistivity measurements
-      * Cryogenic application up to and including vacuum turbo-pumped, He3 systems
+## Visualization of multivariate spaces
+  * Between 2018 and 2021 (expected) researched linear projection visualization, especially as animations across local changes to the basis known as visualization `tours`
+  * 1 accepted publication, 1 R package publication
+  * Another 3 publications in the pipeline
 
+## Superconductors, condensed matter physics 
+  * Between 2009 and 2014 researched pnictide superconductors (iron-based, type II superconductivity)
+  * 6 publications across various compositions and dopings
+  * Drafting and fabrication of fabricated tunnel-diode resonators with 0.01ppm sensitivity for contactless resistivity measurements
+  * Cryogenic application up to and including vacuum turbo-pumped, He3 systems
   
 # Membership
 
@@ -155,6 +159,16 @@ tribble(
 
 # Publications
 
+## Visualization of multivariate spaces
+```{r ref-highDimVis, results='asis'}
+RefManageR::ReadBib("./nssPubs.bib")
+```
+
+## Superconductors, condensed matter physics
+```{r ref-physics, results='asis'}
+RefManageR::ReadBib("./nssPubs_physics.bib")
+```
+
 <!-- $$ -->
 <!-- \bibentry\{spyrison\_spinifex\_2020\} -->
 <!-- $$ -->
@@ -169,16 +183,6 @@ tribble(
 <!-- ## Software (R packages) -->
 <!-- ## Presentations -->
 <!-- ## Research papers, physics -->
-
-## Visualization of multivariate spaces
-```{r ref-highDimVis, results='asis'}
-RefManageR::ReadBib("./nssPubs.bib")
-```
-
-## Superconductors, condensed matter physics
-```{r ref-physics, results='asis'}
-RefManageR::ReadBib("./nssPubs_physics.bib")
-```
 
 
 <!-- $\nsKeyword{data analysis, high dimensional visualization}$ -->
