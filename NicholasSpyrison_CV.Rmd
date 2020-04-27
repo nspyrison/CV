@@ -12,17 +12,21 @@ headcolor: "0044cc" ## String of hex color code without '#'
 output: 
   vitae::hyndman:
   keep_tex: true 
-# bibliography: nssPubs.bib
+bibliography: nssPubs.bib
 header_includes:
   - \ExecuteBibliographyOptions{useprefix=true}
   - renewcommand{\bibfont}{\normalfont\fontsize{12}{15}\sffamily}
   - \usepackage{graphicx}
   - \usepackage{amsmath}
-  # - \usepackage{bibentry} #% needed for \bibentry to force print all bib entries
-  - \usepackage{color} #% needed for \textcolor 
-  - \newcommand{\nsKeyword}{\tiny \textcolor{white}}
-  ## Call with $\nsKeyword{text}$
+  - \usepackage{bibentry} #% needed for \bibentry to force print all bib entries
+  - \usepackage{color} #% needed for \textcolor
+  - \newcommand{\nsKeyword}{\tiny \textcolor{white}} ## Call with $\nsKeyword{text}$
 ---
+<!-- nocite: @spyrison_spinifex_2019 -->
+<!-- nocite: | -->
+<!--   @spyrison_spinifex_2019, @spyrison_spinifex_2020 -->
+<!-- ... -->
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, message = F, collapse = T)
@@ -32,6 +36,9 @@ library(unpivotr)
 source("baretable.R")
 ### Troubles with bib files:
 library(RefManageR) ## printing bib entry workaround.
+
+df <- bib2df::bib2df("./nssPubs.bib")
+df
 ```
 
 # Education
@@ -39,14 +46,14 @@ library(RefManageR) ## printing bib entry workaround.
 ```{r results='asis'}
 x <- tribble(
   ~Start, ~End, ~Text,
-  2018, "\\textit{2021}", "\\textit{(expected) Ph.D. Information Technology} 
+  2018, "\\textit{2021}", "\\textit{(expected) Ph.D. Information Technology}
     \\hfill Monash University, Clayton, VIC, AUS",
   NA, NA, "Thesis: New Tools for User-guided Exploration of Linear Projections \\hspace{60 mm}", #hspace longest line
-  
-  2008, 2012, "\\textit{B.Sc. statistics}
+
+  2008, "2012", "\\textit{B.Sc. statistics}
     \\hfill Iowa State University, Ames, IA, USA",
   NA, NA, "Minors: physics and mathematics"
-) 
+)
 #x <- arrange(x, -Start)
 x$End = replace_na(x$End, "")
 x$Years = if_else(is.na(x$Start), "", paste0(x$Start, "--", x$End))
@@ -62,8 +69,8 @@ select(x, Years, Text) %>%
 x <- tribble(
   ~Start, ~End, ~Position,
   2020, 2020, "Teaching assistant, data exploration and visualization -- Monash University", # FIT 5147
-  2018, 2018, "Research officer, human geology -- Monash University", # R Language, ETL of AUS census, 3 censuses of Melb, 2 of Sydn 
-  2019, 2019, "Teaching assistant, business and economic statistics -- Monash University", #ETC1000 
+  2018, 2018, "Research officer, human geology -- Monash University", # R Language, ETL of AUS census, 3 censuses of Melb, 2 of Sydn
+  2019, 2019, "Teaching assistant, business and economic statistics -- Monash University", #ETC1000
   2018, 2019, "Research officer, criminology -- Monash University", # R Language, ETL and analysis gauguing communitiy interaction across intervention
 
   2016, 2018, "\\textbf{Business intelligence developer} --  CPI Card Group Inc.",
@@ -71,21 +78,21 @@ x <- tribble(
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Supply chain reporting leading to more than 4 million USD cost reduction for one location",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- mid-high level abstraction",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ 4 reporting tools across multiple database instances",
-  
+
   2015, 2016, "\\textbf{Business intelligence developer} -- United Dominion Realty Trust Inc. (UDR)",
   NA, NA, "\\textit{T-SQL - 2012 \\& 2016 (SSMS, SSRS, SSAS - MOLAP Cube), PowerBI, WebFOCUS – 8.0+, Excel}",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ 3 reporting tools across several database instances",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ On-call for enterprize-wide nightly data process",
-  
+
   2014, 2015, "\\textbf{Business intelligence analyst} -- Heartland Financial USA Inc.",
   NA, NA, "\\textit{WebFOCUS – 8.0+, Excel}",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ T-SQL development -- high level abstraction",
-  
+
   2014, 2014, "\\textbf{Laboratory technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics \\& Astronomy
-  NA, NA, "\\textit{CAD Inventor, LabVIEW, Excel}", 
+  NA, NA, "\\textit{CAD Inventor, LabVIEW, Excel}",
   # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
-  
+
   2013, 2014, "\\textbf{Delivery analyst} -- International Business Machines Corporation (IBM)",
   NA, NA, "\\textit{Excel, VBA, R language}",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and middle management",
@@ -93,17 +100,17 @@ x <- tribble(
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Weekly metric/KPI presentations to lower and middle management",
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Automated cleaning and metric creation in VBA for greater than 1 FTE savings across the team",
 
-  
+
   2012, 2012, "\\textbf{User interface developer} -- Iowa State University", # ; the Department of Statistics
   NA, NA, "\\textit{R language, GitHub, Linux Shell}",
-  
+
   2010, 2012, "\\textbf{Laboratory technician} -- The Ames Laboratory \\& Iowa State University", # ; the Department of Physics & Astronomy
-  NA, NA, "\\textit{CAD Inventor, LabVIEW, LaTeX, Excel}", 
+  NA, NA, "\\textit{CAD Inventor, LabVIEW, LaTeX, Excel}",
   # NA, NA, "\\hspace{5 mm} $\\bullet~~$ Superconductor research and aperatus fabrication",
-  
+
   2009, 2009, "\\textbf{Physics tutor} -- Iowa State University", # ; the Department of Physics \\& Astronomy
   NA, NA, "\\hspace{5 mm} $\\bullet~~$ Classical physics I \\& II with calculus",
-  
+
   NA, NA, NA
 )
   #arrange(-Start) %>%
@@ -138,12 +145,12 @@ tribble(
   * 1 accepted publication, 1 R package publication
   * Another 3 publications in the pipeline
 
-## Superconductors, condensed matter physics 
+## Superconductors, condensed matter physics
   * Between 2009 and 2014 researched pnictide superconductors (iron-based, type II superconductivity)
   * 6 publications across various compositions and dopings
   * Drafting and fabrication of fabricated tunnel-diode resonators with 0.01ppm sensitivity for contactless resistivity measurements
   * Cryogenic application up to and including vacuum turbo-pumped, He3 systems
-  
+
 # Membership
 
   * Australian Centre of Excellence for Mathematical and Statistical Frontiers (ACEMS)
@@ -160,12 +167,12 @@ tribble(
 # Publications
 
 ## Visualization of multivariate spaces
-```{r ref-highDimVis, results='asis'}
+```{r ref-highDimVis, results='asis', eval=F}
 RefManageR::ReadBib("./nssPubs.bib")
 ```
 
 ## Superconductors, condensed matter physics
-```{r ref-physics, results='asis'}
+```{r ref-physics, results='asis', eval=F}
 RefManageR::ReadBib("./nssPubs_physics.bib")
 ```
 
@@ -187,3 +194,7 @@ RefManageR::ReadBib("./nssPubs_physics.bib")
 
 <!-- $\nsKeyword{data analysis, high dimensional visualization}$ -->
 <!-- ## above prints with no spaces, how to print a string in latex math env? -->
+
+---
+nocite: '@*'
+...

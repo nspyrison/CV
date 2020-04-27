@@ -1,0 +1,31 @@
+---
+title: "Untitled"
+output: pdf_document
+bibliography: nssPubs.bib
+---
+
+```{r, include = FALSE}
+#knitr::write_bib(x = c("rmarkdown", "knitr"), file = "nssPubs.bib")
+```
+
+Text in which I make no reference to any bibliography.
+
+# Books (since 2018)
+
+```{r books}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = FALSE)
+library(tidyverse)
+library(RefManageR)
+library(vitae)
+source("baretable.R")
+
+bibliography_entries("zExamp_Rob/rjhpubs.bib") %>%
+  filter(bibtype == "Book", year > 2015) %>%
+  arrange(year, surnames)
+```
+
+# References
+
+---
+nocite: '@*'
+...
