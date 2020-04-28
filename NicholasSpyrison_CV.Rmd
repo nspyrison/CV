@@ -22,10 +22,6 @@ header_includes:
   - \usepackage{color} #% needed for \textcolor
   - \newcommand{\nsKeyword}{\tiny \textcolor{white}} ## Call with $\nsKeyword{text}$
 ---
-<!-- nocite: @spyrison_spinifex_2019 -->
-<!-- nocite: | -->
-<!--   @spyrison_spinifex_2019, @spyrison_spinifex_2020 -->
-<!-- ... -->
 
 
 ```{r setup, include=FALSE}
@@ -167,8 +163,10 @@ tribble(
 # Publications
 
 ## Visualization of multivariate spaces
-```{r ref-highDimVis, results='asis', eval=F}
-RefManageR::ReadBib("./nssPubs.bib")
+```{r ref-highDimVis, results='asis'}
+# RefManageR::ReadBib("./nssPubs.bib")
+bibliography_entries("./nssPubs.bib") %>%
+  arrange(date, surnames)
 ```
 
 ## Superconductors, condensed matter physics
@@ -176,25 +174,7 @@ RefManageR::ReadBib("./nssPubs.bib")
 RefManageR::ReadBib("./nssPubs_physics.bib")
 ```
 
-<!-- $$ -->
-<!-- \bibentry\{spyrison\_spinifex\_2020\} -->
-<!-- $$ -->
 
-<!-- $$ -->
-<!-- \bibliography\{nssPubs\} -->
-<!-- $$ -->
-
-<!-- \renewcommand{\bibfont}{\normalfont\fontsize{10}{11.8}\sffamily} -->
-<!-- ## PhD thesis -->
-<!-- ## Research papers -->
-<!-- ## Software (R packages) -->
-<!-- ## Presentations -->
-<!-- ## Research papers, physics -->
-
-
-<!-- $\nsKeyword{data analysis, high dimensional visualization}$ -->
-<!-- ## above prints with no spaces, how to print a string in latex math env? -->
-
----
-nocite: '@*'
-...
+<!-- --- -->
+<!-- nocite: '@*' -->
+<!-- ... -->
